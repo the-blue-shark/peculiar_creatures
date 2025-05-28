@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "peculiar_creatures",
+	"version": "${version}",
+	"name": "Peculiar Creatures",
+	"description": "Adds new creatures to your minecraft world.",
+	"authors": [
+		"the_blue_shark"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/peculiar_creatures/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.the_blue_shark.peculiar_creatures.PeculiarCreaturesMod"
+		],
+		"fabric-datagen": [
+			"net.the_blue_shark.peculiar_creatures.PeculiarCreaturesModDataGenerator"
+		],
+		"client": [
+			"net.the_blue_shark.peculiar_creatures.PeculiarCreaturesModClient"
+		]
+	},
+	"mixins": [
+		"peculiar_creatures.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "polymer"
+	}
+}
