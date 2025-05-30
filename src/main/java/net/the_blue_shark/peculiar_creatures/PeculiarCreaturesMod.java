@@ -1,5 +1,6 @@
 package net.the_blue_shark.peculiar_creatures;
 
+import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 
 import net.the_blue_shark.peculiar_creatures.item.ModItems;
@@ -14,6 +15,8 @@ public class PeculiarCreaturesMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		PolymerResourcePackUtils.addModAssets(PeculiarCreaturesMod.MOD_ID);
+		PolymerResourcePackUtils.markAsRequired();
 		ModItems.registerModItems();
 		ModSounds.registerSounds();
 	}

@@ -11,13 +11,16 @@ import net.minecraft.util.Identifier;
 import net.the_blue_shark.peculiar_creatures.PeculiarCreaturesMod;
 
 public class ModSounds {
-    public static final PolymerSoundEvent SPECTRE = PolymerSoundEvent.of(registerSoundEvent("spectre"));
-    public static final RegistryKey<JukeboxSong> SPECTRE_KEY =
-            RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(PeculiarCreaturesMod.MOD_ID, "spectre"));
+    public static final SoundEvent SPECTRE = registerSoundEvent("spectre");
+    public static final RegistryKey<JukeboxSong> SPECTRE_KEY = of("spectre");
+
+    private static RegistryKey<JukeboxSong> of(String name) {
+        return RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(PeculiarCreaturesMod.MOD_ID, name));
+    }
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = Identifier.of(PeculiarCreaturesMod.MOD_ID, name);
-        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        return Registry.register(Registries.SOUND_EVENT, Identifier.of(PeculiarCreaturesMod.MOD_ID, name),
+                SoundEvent.of(Identifier.of(PeculiarCreaturesMod.MOD_ID, name)));
     }
 
     public static void registerSounds() {
