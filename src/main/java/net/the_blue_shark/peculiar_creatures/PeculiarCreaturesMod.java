@@ -3,6 +3,9 @@ package net.the_blue_shark.peculiar_creatures;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
+import net.the_blue_shark.peculiar_creatures.entity.custom.SmurfCatEntity;
 import net.the_blue_shark.peculiar_creatures.item.ModItems;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import org.slf4j.Logger;
@@ -17,7 +20,11 @@ public class PeculiarCreaturesMod implements ModInitializer {
 	public void onInitialize() {
 		PolymerResourcePackUtils.addModAssets(PeculiarCreaturesMod.MOD_ID);
 		PolymerResourcePackUtils.markAsRequired();
+
 		ModItems.registerModItems();
 		ModSounds.registerSounds();
+		ModEntities.registerModEntities();
+
+		FabricDefaultAttributeRegistry.register(ModEntities.SMURF_CAT, SmurfCatEntity.createAttributes());
 	}
 }
