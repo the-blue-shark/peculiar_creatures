@@ -18,13 +18,10 @@ public class PeculiarCreaturesMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		PolymerResourcePackUtils.addModAssets(PeculiarCreaturesMod.MOD_ID);
-		PolymerResourcePackUtils.markAsRequired();
-
-		ModItems.registerModItems();
 		ModSounds.registerSounds();
+		ModItems.registerModItems();
 		ModEntities.registerModEntities();
 
-		FabricDefaultAttributeRegistry.register(ModEntities.SMURF_CAT, SmurfCatEntity.createAttributes());
+		PolymerResourcePackUtils.addModAssets(PeculiarCreaturesMod.MOD_ID);
 	}
 }

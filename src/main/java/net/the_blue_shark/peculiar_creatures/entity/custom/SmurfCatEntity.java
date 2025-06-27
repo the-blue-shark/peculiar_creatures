@@ -1,34 +1,44 @@
 package net.the_blue_shark.peculiar_creatures.entity.custom;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
+import com.mojang.datafixers.util.Pair;
+import eu.pb4.polymer.core.api.entity.PolymerEntity;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ProfileComponent;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.nbt.*;
+import net.minecraft.network.packet.s2c.play.EntityAttributesS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
+import net.the_blue_shark.peculiar_creatures.mixin.ZombieEntityAccessor;
 import org.jetbrains.annotations.Nullable;
+import xyz.nucleoid.packettweaker.PacketContext;
+import java.util.List;
+import java.util.UUID;
 
-public class SmurfCatEntity extends AnimalEntity {
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
+
+public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     public SmurfCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -55,7 +65,7 @@ public class SmurfCatEntity extends AnimalEntity {
                 .add(EntityAttributes.FOLLOW_RANGE, 20)
                 .add(EntityAttributes.TEMPT_RANGE, 12);
     }
-
+    /*
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = 200;
@@ -72,25 +82,25 @@ public class SmurfCatEntity extends AnimalEntity {
         if (this.getWorld().isClient()) {
             this.setupAnimationStates();
         }
-    }
+    }*/
 
     /* SOUNDS */
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM;
+        return SoundEvents.ENTITY_CAT_AMBIENT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ALLAY_HURT;
+        return SoundEvents.ENTITY_CAT_HURT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_PANDA_DEATH;
+        return SoundEvents.ENTITY_CAT_DEATH;
     }
 
     @Override
@@ -104,8 +114,37 @@ public class SmurfCatEntity extends AnimalEntity {
     }
 
     @Nullable
+
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.SMURF_CAT.create(world, SpawnReason.BREEDING);
+    }
+
+    @Override
+    public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
+        return EntityType.ZOMBIE;
+    }
+
+    @Override
+    public void modifyRawTrackedData(List<DataTracker.SerializedEntry<?>> data, ServerPlayerEntity player, boolean initial) {
+        TrackedData<Boolean> babyFlag = ZombieEntityAccessor.getBabyFlag();
+        data.add(DataTracker.SerializedEntry.of(babyFlag, true));
+    }
+
+    @Override
+    public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
+        return List.of(new Pair<>(EquipmentSlot.HEAD, createCustomHead()));
+    }
+
+    private ItemStack createCustomHead() {
+        ItemStack head = new ItemStack(Items.PLAYER_HEAD);
+
+        // Create a GameProfile with the username
+        GameProfile profile = new GameProfile(UUID.randomUUID(), "platd");
+
+        // Apply the profile using components
+        head.set(DataComponentTypes.PROFILE, new ProfileComponent(profile));
+
+        return head;
     }
 }

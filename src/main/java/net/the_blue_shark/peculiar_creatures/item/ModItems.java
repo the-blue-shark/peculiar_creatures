@@ -17,7 +17,9 @@ import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import java.util.function.Function;
 
 public class ModItems {
-    public static final Item SPECTRE_DISC = registerItem("spectre_music_disc", setting -> new SimplePolymerItem(setting.jukeboxPlayable(ModSounds.SPECTRE_KEY).maxCount(1)));
+    public static final Item SPECTRE_DISC = registerItem("spectre_music_disc", setting -> new SimplePolymerItem(setting/*.jukeboxPlayable(ModSounds.SPECTRE_KEY)*/.maxCount(1)));
+
+
 
 
 

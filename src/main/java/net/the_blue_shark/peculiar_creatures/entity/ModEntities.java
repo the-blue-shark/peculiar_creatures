@@ -27,6 +27,8 @@ public class ModEntities {
     }
 
     public static void registerModEntities() {
+        FabricDefaultAttributeRegistry.register(ModEntities.SMURF_CAT, SmurfCatEntity.createAttributes());
+
         PeculiarCreaturesMod.LOGGER.info("Registering Mod Entities for " + PeculiarCreaturesMod.MOD_ID);
     }
 }
