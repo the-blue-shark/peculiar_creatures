@@ -249,19 +249,6 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
                 List.of()
         ));
     }
-/*
-    private ItemStack createCustomHead() {
-        ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
-        UUID uuid = UUID.fromString("39b8b982-3049-42e5-ac30-dd9d28515c20");  // Optional: any UUID
-        GameProfile profile = new GameProfile(uuid, "turbonitrate");
-        String textureValue = "e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=";
-        profile.getProperties().put("textures", new com.mojang.authlib.properties.Property("textures", textureValue));
-        stack.set(DataComponentTypes.PROFILE, new ProfileComponent(profile));
-        Text loreText = Text.literal("https://namemc.com/skin/be2ae51d3a68cad8");
-        stack.set(DataComponentTypes.LORE, new LoreComponent(Collections.singletonList(loreText)));
-
-        return stack;
-    }*/
 
 
 }
