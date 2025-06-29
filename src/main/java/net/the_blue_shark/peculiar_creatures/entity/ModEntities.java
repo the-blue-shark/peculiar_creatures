@@ -16,7 +16,7 @@ import net.the_blue_shark.peculiar_creatures.entity.custom.SmurfCatEntity;
 public class ModEntities {
 
     public static final EntityType<SmurfCatEntity> SMURF_CAT = register(Identifier.of(PeculiarCreaturesMod.MOD_ID, "smurf_cat"),
-            EntityType.Builder.<SmurfCatEntity>create(SmurfCatEntity::new, SpawnGroup.CREATURE).dimensions(0.4f, 0.5f)
+            EntityType.Builder.<SmurfCatEntity>create(SmurfCatEntity::new, SpawnGroup.CREATURE).dimensions(0.3f, 0.6f)
     );
 
 

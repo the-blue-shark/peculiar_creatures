@@ -1,6 +1,8 @@
 {
   "itemGroup.peculiar_creatures.item_group": "Peculiar Creatures",
 
+  "item.peculiar_creatures.smurf_cat_spawn_egg": "Smurf Cat Spawn Egg",
+
   "item.peculiar_creatures.spectre_music_disc": "The Spectre Music Disc",
   "item.peculiar_creatures.spectre_music_disc.desc": "Alan Walker - The Spectre"
 }

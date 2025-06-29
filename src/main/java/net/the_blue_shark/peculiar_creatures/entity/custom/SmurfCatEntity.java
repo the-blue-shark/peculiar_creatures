@@ -4,7 +4,14 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
+import eu.pb4.polymer.core.api.utils.PolymerUtils;
+import eu.pb4.polymer.virtualentity.api.ElementHolder;
+import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
+import eu.pb4.polymer.virtualentity.api.elements.InteractionElement;
+import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
+import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.component.type.ProfileComponent;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -16,22 +23,32 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.*;
 import net.minecraft.network.packet.s2c.play.EntityAttributesS2CPacket;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
 import net.the_blue_shark.peculiar_creatures.mixin.ZombieEntityAccessor;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4x3fStack;
 import xyz.nucleoid.packettweaker.PacketContext;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,10 +56,105 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 
 public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
+    private static final UUID SIZE_MODIFIER_UUID = UUID.fromString("6f7d6b0c-dc69-4c3e-a2c4-8b2d2d2e2b2b");
 
-    public SmurfCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
-        super(entityType, world);
+    private final ElementHolder holder;
+    private final EntityAttachment attachment;
+    private final ItemDisplayElement leftLeg = new ItemDisplayElement(Items.RED_CONCRETE);
+    private final ItemDisplayElement rightLeg = new ItemDisplayElement(Items.RED_CONCRETE);
+    private final ItemDisplayElement torso = new ItemDisplayElement(PolymerUtils.createPlayerHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjYyYzQ4NWIxODg2ZGJjZTZjMWNhZDE0MGMwZWY4NzYzNTU5ZDQzYTc4NTY0NDY2NGM2ZDVmMzZlMjc1NGVlOCJ9fX0="));
+    private final InteractionElement interaction = InteractionElement.redirect(this);
+    private final MobAnchorElement rideAnchor = new MobAnchorElement();
+
+    private Matrix4x3fStack stack = new Matrix4x3fStack(8);
+    private float previousSpeed = Float.MIN_NORMAL;
+    private float previousLimbPos = Float.MIN_NORMAL;
+    private float deathAngle;
+
+    public SmurfCatEntity(EntityType<SmurfCatEntity> entityEntityType, World world) {
+        super(entityEntityType, world);
+        this.holder = new ElementHolder() {
+            @Override
+            protected void notifyElementsOfPositionUpdate(Vec3d newPos, Vec3d delta) {
+                SmurfCatEntity.this.rideAnchor.notifyMove(this.currentPos, newPos, delta);
+            }
+
+            @Override
+            public Vec3d getPos() {
+                return this.getAttachment().getPos();
+            }
+        };
+        this.rideAnchor.setOffset(new Vec3d(0, 1.3f, 0));
+
+        leftLeg.setInterpolationDuration(2);
+        leftLeg.ignorePositionUpdates();
+        rightLeg.setInterpolationDuration(2);
+        rightLeg.ignorePositionUpdates();
+        torso.setInterpolationDuration(2);
+        torso.ignorePositionUpdates();
+        leftLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
+        rightLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
+        torso.setItemDisplayContext(ItemDisplayContext.FIXED);
+        this.interaction.setSize(0f, 0f);
+        this.interaction.ignorePositionUpdates();
+        this.rideAnchor.ignorePositionUpdates();
+        this.updateAnimation();
+
+        this.holder.addPassengerElement(interaction);
+        this.holder.addPassengerElement(leftLeg);
+        this.holder.addPassengerElement(rightLeg);
+        this.holder.addPassengerElement(torso);
+        this.holder.addElement(rideAnchor);
+        this.attachment = new EntityAttachment(this.holder, this, false);
     }
+    private void updateAnimation() {
+        var speed = this.limbAnimator.getSpeed();
+        var limbPos = this.limbAnimator.getAnimationProgress();
+        float f = ((float)this.deathTime) / 20.0F * 1.6F;
+        f = MathHelper.sqrt(f);
+        if (f > 1.0F) {
+            f = 1.0F;
+        }
+        if (this.deathAngle == f && speed == this.previousSpeed && limbPos == this.previousLimbPos) {
+            return;
+        }
+
+
+
+        this.deathAngle = f;
+        this.previousSpeed = speed;
+        this.previousLimbPos = limbPos;
+
+        this.leftLeg.startInterpolation();
+        this.rightLeg.startInterpolation();
+        this.torso.startInterpolation();
+
+        stack.clear();
+        stack.translate(0, -0.2f, 0);
+        stack.rotateY((float) Math.toRadians(- MathHelper.lerpAngleDegrees(0.5f, this.lastYaw, this.getYaw())) + (float) (0.00001f * Math.random()));
+        if (this.deathTime > 0) {
+            stack.rotate(RotationAxis.POSITIVE_Z.rotation(f * MathHelper.HALF_PI));
+        }
+        stack.scale(2);
+        stack.pushMatrix();
+
+        stack.translate(0, 0.5f, 0);
+        torso.setTransformation(stack);
+
+        stack.popMatrix();
+
+        stack.pushMatrix();
+        stack.translate(0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+        leftLeg.setTransformation(stack);
+        stack.popMatrix();
+
+        stack.pushMatrix();
+        stack.translate(-0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+        rightLeg.setTransformation(stack);
+        stack.popMatrix();
+    }
+
+
 
     @Override
     protected void initGoals() {
@@ -65,24 +177,17 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
                 .add(EntityAttributes.FOLLOW_RANGE, 20)
                 .add(EntityAttributes.TEMPT_RANGE, 12);
     }
-    /*
-    private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = 200;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationTimeout;
-        }
-    }
 
     @Override
     public void tick() {
         super.tick();
 
-        if (this.getWorld().isClient()) {
-            this.setupAnimationStates();
-        }
-    }*/
+
+        this.updateLimbs(false);
+        this.updateAnimation();
+
+        this.holder.tick();
+    }
 
     /* SOUNDS */
     @Nullable
@@ -133,18 +238,30 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     @Override
     public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
-        return List.of(new Pair<>(EquipmentSlot.HEAD, createCustomHead()));
+        return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
     }
 
+    @Override
+    public void modifyRawEntityAttributeData(List<EntityAttributesS2CPacket.Entry> data, ServerPlayerEntity player, boolean initial) {
+        data.add(new EntityAttributesS2CPacket.Entry(
+                EntityAttributes.SCALE,
+                0.6,
+                List.of()
+        ));
+    }
+/*
     private ItemStack createCustomHead() {
-        ItemStack head = new ItemStack(Items.PLAYER_HEAD);
+        ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
+        UUID uuid = UUID.fromString("39b8b982-3049-42e5-ac30-dd9d28515c20");  // Optional: any UUID
+        GameProfile profile = new GameProfile(uuid, "turbonitrate");
+        String textureValue = "e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=";
+        profile.getProperties().put("textures", new com.mojang.authlib.properties.Property("textures", textureValue));
+        stack.set(DataComponentTypes.PROFILE, new ProfileComponent(profile));
+        Text loreText = Text.literal("https://namemc.com/skin/be2ae51d3a68cad8");
+        stack.set(DataComponentTypes.LORE, new LoreComponent(Collections.singletonList(loreText)));
 
-        // Create a GameProfile with the username
-        GameProfile profile = new GameProfile(UUID.randomUUID(), "platd");
+        return stack;
+    }*/
 
-        // Apply the profile using components
-        head.set(DataComponentTypes.PROFILE, new ProfileComponent(profile));
 
-        return head;
-    }
 }
