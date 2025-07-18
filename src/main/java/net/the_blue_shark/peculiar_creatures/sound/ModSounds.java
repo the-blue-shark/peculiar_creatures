@@ -17,16 +17,20 @@ import java.util.Optional;
 
 public class ModSounds {
 
-    public static final SoundEvent SPECTRE = registerSoundEvent("spectre");
+    public static final SoundEvent SPECTRE = registerSoundEvent("spectre", SoundEvents.MUSIC_DISC_CAT.value());
     public static final RegistryKey<JukeboxSong> SPECTRE_KEY = of("spectre");
+
+
+
 
 
     private static RegistryKey<JukeboxSong> of(String name) {
         return RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(PeculiarCreaturesMod.MOD_ID, name));
     }
-    private static SoundEvent registerSoundEvent(String name) {
+    private static SoundEvent registerSoundEvent(String name, SoundEvent soundEvent) {
         Identifier id = Identifier.of(PeculiarCreaturesMod.MOD_ID, name);
-        SoundEvent event = Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        var event = Registry.register(Registries.SOUND_EVENT, id, new SoundEvent(id, Optional.empty()));
+        PolymerSoundEvent.registerOverlay(event, soundEvent);
         RegistrySyncUtils.setServerEntry(Registries.SOUND_EVENT, event);
         return event;
     }

@@ -5,11 +5,14 @@ import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.core.api.utils.PolymerUtils;
+import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
 import eu.pb4.polymer.virtualentity.api.elements.InteractionElement;
 import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
+import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
+import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.LoreComponent;
 import net.minecraft.component.type.ProfileComponent;
@@ -21,6 +24,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -48,25 +52,21 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4x3fStack;
 import xyz.nucleoid.packettweaker.PacketContext;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 
 public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
-    private static final UUID SIZE_MODIFIER_UUID = UUID.fromString("6f7d6b0c-dc69-4c3e-a2c4-8b2d2d2e2b2b");
-
     private final ElementHolder holder;
-    private final EntityAttachment attachment;
     private final ItemDisplayElement leftLeg = new ItemDisplayElement(Items.RED_CONCRETE);
     private final ItemDisplayElement rightLeg = new ItemDisplayElement(Items.RED_CONCRETE);
     private final ItemDisplayElement torso = new ItemDisplayElement(PolymerUtils.createPlayerHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjYyYzQ4NWIxODg2ZGJjZTZjMWNhZDE0MGMwZWY4NzYzNTU5ZDQzYTc4NTY0NDY2NGM2ZDVmMzZlMjc1NGVlOCJ9fX0="));
+    private final ItemDisplayElement head = new ItemDisplayElement(PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0="));
     private final InteractionElement interaction = InteractionElement.redirect(this);
     private final MobAnchorElement rideAnchor = new MobAnchorElement();
 
-    private Matrix4x3fStack stack = new Matrix4x3fStack(8);
+    private final Matrix4x3fStack stack = new Matrix4x3fStack(8);
     private float previousSpeed = Float.MIN_NORMAL;
     private float previousLimbPos = Float.MIN_NORMAL;
     private float deathAngle;
@@ -84,18 +84,21 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
                 return this.getAttachment().getPos();
             }
         };
-        this.rideAnchor.setOffset(new Vec3d(0, 1.3f, 0));
 
+        this.rideAnchor.setOffset(new Vec3d(0, 1.2f, 0));
         leftLeg.setInterpolationDuration(2);
         leftLeg.ignorePositionUpdates();
         rightLeg.setInterpolationDuration(2);
         rightLeg.ignorePositionUpdates();
         torso.setInterpolationDuration(2);
         torso.ignorePositionUpdates();
+        head.setInterpolationDuration(2);
+        head.ignorePositionUpdates();
         leftLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
         rightLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
         torso.setItemDisplayContext(ItemDisplayContext.FIXED);
-        this.interaction.setSize(0f, 0f);
+        head.setItemDisplayContext(ItemDisplayContext.FIXED);
+        this.interaction.setSize(0.3f, 0.6f);
         this.interaction.ignorePositionUpdates();
         this.rideAnchor.ignorePositionUpdates();
         this.updateAnimation();
@@ -104,65 +107,80 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
         this.holder.addPassengerElement(leftLeg);
         this.holder.addPassengerElement(rightLeg);
         this.holder.addPassengerElement(torso);
+        this.holder.addPassengerElement(head);
         this.holder.addElement(rideAnchor);
-        this.attachment = new EntityAttachment(this.holder, this, false);
+
+        EntityAttachment attachment = new EntityAttachment(this.holder, this, false) {
+            @Override
+            public void startWatching(ServerPlayerEntity player) {
+                if (PolymerResourcePackUtils.hasMainPack(player)) {
+                    super.startWatching(player);
+                }
+            }
+        };
+
     }
+
     private void updateAnimation() {
-        var speed = this.limbAnimator.getSpeed();
-        var limbPos = this.limbAnimator.getAnimationProgress();
-        float f = ((float)this.deathTime) / 20.0F * 1.6F;
-        f = MathHelper.sqrt(f);
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-        if (this.deathAngle == f && speed == this.previousSpeed && limbPos == this.previousLimbPos) {
-            return;
-        }
+            var speed = this.limbAnimator.getSpeed();
+            var limbPos = this.limbAnimator.getAnimationProgress();
+            float f = ((float) this.deathTime) / 20.0F * 1.6F;
+            f = MathHelper.sqrt(f);
+            if (f > 1.0F) {
+                f = 1.0F;
+            }
+            if (this.deathAngle == f && speed == this.previousSpeed && limbPos == this.previousLimbPos) {
+                return;
+            }
 
+            this.deathAngle = f;
+            this.previousSpeed = speed;
+            this.previousLimbPos = limbPos;
 
+            this.leftLeg.startInterpolation();
+            this.rightLeg.startInterpolation();
+            this.torso.startInterpolation();
+            this.head.startInterpolation();
 
-        this.deathAngle = f;
-        this.previousSpeed = speed;
-        this.previousLimbPos = limbPos;
+            stack.clear();
+            stack.translate(0, -0.02f, 0);
+            stack.rotateY((float) Math.toRadians(-MathHelper.lerpAngleDegrees(0.5f, this.lastYaw, this.getYaw())) + (float) (0.00001f * Math.random()));
+            if (this.deathTime > 0) {
+                stack.rotate(RotationAxis.POSITIVE_Z.rotation(-f * MathHelper.HALF_PI));
+            }
+            interaction.setOnFire(this.isOnFire());
+            stack.scale(0.5f);
+            stack.pushMatrix();
 
-        this.leftLeg.startInterpolation();
-        this.rightLeg.startInterpolation();
-        this.torso.startInterpolation();
+            stack.translate(0, 0.5f, 0);
+            torso.setTransformation(stack);
 
-        stack.clear();
-        stack.translate(0, -0.2f, 0);
-        stack.rotateY((float) Math.toRadians(- MathHelper.lerpAngleDegrees(0.5f, this.lastYaw, this.getYaw())) + (float) (0.00001f * Math.random()));
-        if (this.deathTime > 0) {
-            stack.rotate(RotationAxis.POSITIVE_Z.rotation(f * MathHelper.HALF_PI));
-        }
-        stack.scale(2);
-        stack.pushMatrix();
+            stack.popMatrix();
 
-        stack.translate(0, 0.5f, 0);
-        torso.setTransformation(stack);
+            stack.pushMatrix();
+            stack.translate(0, 0.7f, 0);
+            stack.rotateY((float) Math.toRadians(this.getHeadYaw()));
+            stack.rotateX((float) Math.toRadians(this.getPitch()));
+            head.setTransformation(stack);
+            stack.popMatrix();
 
-        stack.popMatrix();
+            stack.pushMatrix();
+            stack.translate(0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+            leftLeg.setTransformation(stack);
+            stack.popMatrix();
 
-        stack.pushMatrix();
-        stack.translate(0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
-        leftLeg.setTransformation(stack);
-        stack.popMatrix();
-
-        stack.pushMatrix();
-        stack.translate(-0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
-        rightLeg.setTransformation(stack);
-        stack.popMatrix();
+            stack.pushMatrix();
+            stack.translate(-0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+            rightLeg.setTransformation(stack);
+            stack.popMatrix();
     }
-
 
 
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 1.4));
-        this.goalSelector.add(2, new TemptGoal(this, 1.0, (stack) -> {
-            return stack.isOf(Items.SWEET_BERRIES);
-        }, true));
+        this.goalSelector.add(2, new TemptGoal(this, 1.0, (stack) -> stack.isOf(Items.SWEET_BERRIES), true));
         this.goalSelector.add(3, new FollowParentGoal(this, 1.1));
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
@@ -215,7 +233,7 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.BEDROCK);
+        return stack.isOf(Items.SWEET_BERRIES);
     }
 
     @Nullable
@@ -227,28 +245,43 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
-        return EntityType.ZOMBIE;
+        ServerPlayerEntity player = packetContext.getPlayer();
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            return EntityType.ZOMBIE;
+        } else {
+            return EntityType.ARMOR_STAND;
+        }
     }
 
     @Override
     public void modifyRawTrackedData(List<DataTracker.SerializedEntry<?>> data, ServerPlayerEntity player, boolean initial) {
-        TrackedData<Boolean> babyFlag = ZombieEntityAccessor.getBabyFlag();
-        data.add(DataTracker.SerializedEntry.of(babyFlag, true));
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            TrackedData<Boolean> babyFlag = ZombieEntityAccessor.getBabyFlag();
+            data.add(DataTracker.SerializedEntry.of(babyFlag, true));
+        } else {
+            data.add(DataTracker.SerializedEntry.of(EntityTrackedData.FLAGS, (byte) (1 << EntityTrackedData.INVISIBLE_FLAG_INDEX)));
+            data.add(new DataTracker.SerializedEntry(EntityAccessor.getNO_GRAVITY().id(), EntityAccessor.getNO_GRAVITY().dataType(), true));
+            data.add(DataTracker.SerializedEntry.of(ArmorStandEntity.ARMOR_STAND_FLAGS, (byte) (ArmorStandEntity.SMALL_FLAG | ArmorStandEntity.MARKER_FLAG)));
+        }
     }
 
     @Override
     public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
-        return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
+        } else {
+            return List.of();
+        }
     }
 
     @Override
     public void modifyRawEntityAttributeData(List<EntityAttributesS2CPacket.Entry> data, ServerPlayerEntity player, boolean initial) {
-        data.add(new EntityAttributesS2CPacket.Entry(
-                EntityAttributes.SCALE,
-                0.6,
-                List.of()
-        ));
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            data.add(new EntityAttributesS2CPacket.Entry(
+                    EntityAttributes.SCALE,
+                    0.6,
+                    List.of()
+            ));
+        }
     }
-
-
 }
