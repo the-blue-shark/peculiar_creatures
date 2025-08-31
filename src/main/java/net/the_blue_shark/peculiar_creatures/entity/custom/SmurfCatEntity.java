@@ -262,9 +262,8 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
     public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
         if(!PolymerResourcePackUtils.hasMainPack(player)) {
             return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
-        } else {
-            return List.of();
         }
+        return List.of();
     }
 
     @Override
