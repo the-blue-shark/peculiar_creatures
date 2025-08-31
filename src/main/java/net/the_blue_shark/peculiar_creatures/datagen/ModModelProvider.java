@@ -20,5 +20,6 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.SPECTRE_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.SMURF_CAT_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SMURF_CAT_HAT, Models.GENERATED);
     }
 }
