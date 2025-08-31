@@ -3,13 +3,18 @@ package net.the_blue_shark.peculiar_creatures.entity.custom;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
+import eu.pb4.polymer.common.impl.CompatStatus;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.core.api.utils.PolymerUtils;
+import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
+import eu.pb4.polymer.virtualentity.api.VirtualEntityUtils;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
 import eu.pb4.polymer.virtualentity.api.elements.InteractionElement;
 import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
+import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
+import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.LoreComponent;
 import net.minecraft.component.type.ProfileComponent;
@@ -21,6 +26,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -32,6 +38,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.*;
 import net.minecraft.network.packet.s2c.play.EntityAttributesS2CPacket;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -78,6 +85,14 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
             protected void notifyElementsOfPositionUpdate(Vec3d newPos, Vec3d delta) {
                 SmurfCatEntity.this.rideAnchor.notifyMove(this.currentPos, newPos, delta);
             }
+            @Override
+            public boolean startWatching(ServerPlayNetworkHandler handler) {
+                ServerPlayerEntity player = handler.player;
+                if (PolymerResourcePackUtils.hasMainPack(player)) {
+                    return super.startWatching(handler);
+                }
+                return false;
+            }
 
             @Override
             public Vec3d getPos() {
@@ -118,8 +133,6 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
         if (this.deathAngle == f && speed == this.previousSpeed && limbPos == this.previousLimbPos) {
             return;
         }
-
-
 
         this.deathAngle = f;
         this.previousSpeed = speed;
@@ -182,7 +195,6 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
     public void tick() {
         super.tick();
 
-
         this.updateLimbs(false);
         this.updateAnimation();
 
@@ -227,28 +239,43 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
-        return EntityType.ZOMBIE;
+        if(PolymerResourcePackUtils.hasMainPack(packetContext.getPlayer())) {
+            return EntityType.ARMOR_STAND;
+        } else {
+            return EntityType.ZOMBIE;
+        }
+
     }
 
     @Override
     public void modifyRawTrackedData(List<DataTracker.SerializedEntry<?>> data, ServerPlayerEntity player, boolean initial) {
-        TrackedData<Boolean> babyFlag = ZombieEntityAccessor.getBabyFlag();
-        data.add(DataTracker.SerializedEntry.of(babyFlag, true));
+        if(PolymerResourcePackUtils.hasMainPack(player)) {
+            data.add(DataTracker.SerializedEntry.of(EntityTrackedData.FLAGS, (byte) (1 << EntityTrackedData.INVISIBLE_FLAG_INDEX)));
+            data.add(DataTracker.SerializedEntry.of(ArmorStandEntity.ARMOR_STAND_FLAGS, (byte) (ArmorStandEntity.SMALL_FLAG | ArmorStandEntity.MARKER_FLAG)));
+            data.add(new DataTracker.SerializedEntry<>(EntityAccessor.getNO_GRAVITY().id(), EntityAccessor.getNO_GRAVITY().dataType(), true));
+        } else {
+            data.add(DataTracker.SerializedEntry.of(ZombieEntityAccessor.getBabyFlag(), true));
+        }
     }
 
     @Override
     public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
-        return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
+        } else {
+            return List.of();
+        }
     }
 
     @Override
     public void modifyRawEntityAttributeData(List<EntityAttributesS2CPacket.Entry> data, ServerPlayerEntity player, boolean initial) {
-        data.add(new EntityAttributesS2CPacket.Entry(
-                EntityAttributes.SCALE,
-                0.6,
-                List.of()
-        ));
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            data.add(new EntityAttributesS2CPacket.Entry(
+                    EntityAttributes.SCALE,
+                    0.6,
+                    List.of()
+            ));
+        }
     }
-
 
 }
