@@ -1,0 +1,58 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "peculiar_creatures:item/smurf_cat"
+	},
+	"elements": [
+		{
+			"name": "head",
+			"from": [4.5, 0, 4.5],
+			"to": [11.5, 1, 11.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 3.5, 7, 4], "texture": "#1"},
+				"east": {"uv": [0, 3.5, 3.5, 4], "texture": "#1"},
+				"south": {"uv": [10.5, 3.5, 14, 4], "texture": "#1"},
+				"west": {"uv": [7, 3.5, 10.5, 4], "texture": "#1"},
+				"up": {"uv": [7, 3.5, 3.5, 0], "texture": "#1"},
+				"down": {"uv": [10.5, 0, 7, 3.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "head",
+			"from": [5.5, 1, 5.5],
+			"to": [10.5, 3, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 6.5, 5, 7.5], "texture": "#1"},
+				"east": {"uv": [0, 6.5, 2.5, 7.5], "texture": "#1"},
+				"south": {"uv": [7.5, 6.5, 10, 7.5], "texture": "#1"},
+				"west": {"uv": [5, 6.5, 7.5, 7.5], "texture": "#1"},
+				"up": {"uv": [5, 6.5, 2.5, 4], "texture": "#1"},
+				"down": {"uv": [9.5, 9, 7, 11.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "head",
+			"from": [6.5, 3, 6.5],
+			"to": [9.5, 5, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4, 8]},
+			"faces": {
+				"north": {"uv": [10, 11, 11.5, 12], "texture": "#1"},
+				"east": {"uv": [8.5, 11, 10, 12], "texture": "#1"},
+				"south": {"uv": [13, 11, 14.5, 12], "texture": "#1"},
+				"west": {"uv": [11.5, 11, 13, 12], "texture": "#1"},
+				"up": {"uv": [11.5, 11, 10, 9.5], "texture": "#1"},
+				"down": {"uv": [13, 9.5, 11.5, 11], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"translation": [0, 30.5, 0],
+			"scale": [3, 3, 3]
+		}
+	}
+}

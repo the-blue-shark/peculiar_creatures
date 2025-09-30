@@ -1,0 +1,54 @@
+{
+  "model": {
+    "type": "select",
+    "property": "custom_model_data",
+    "fallback": {
+      "type": "model",
+      "model": "item/white_dye"
+    },
+    "cases": [
+      {
+        "when": "smurf_cat_head",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_head"
+        }
+      },
+      {
+        "when": "smurf_cat_chest",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_chest"
+        }
+      },
+      {
+        "when": "smurf_cat_leg_right",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_leg_right"
+        }
+      },
+      {
+        "when": "smurf_cat_leg_left",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_leg_left"
+        }
+      },
+      {
+        "when": "smurf_cat_arm_right",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_arm_right"
+        }
+      },
+      {
+        "when": "smurf_cat_arm_left",
+        "model": {
+          "type": "model",
+          "model": "peculiar_creatures:item/smurf_cat/smurf_cat_arm_left"
+        }
+      }
+    ]
+  }
+}

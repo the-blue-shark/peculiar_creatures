@@ -8,6 +8,7 @@ import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
 import net.the_blue_shark.peculiar_creatures.entity.custom.SmurfCatEntity;
 import net.the_blue_shark.peculiar_creatures.item.ModItems;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
+import net.the_blue_shark.peculiar_creatures.worldgen.ModEntitySpawns;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,7 @@ public class PeculiarCreaturesMod implements ModInitializer {
 		ModSounds.registerSounds();
 		ModItems.registerModItems();
 		ModEntities.registerModEntities();
+		ModEntitySpawns.addSpawns();
 
 		PolymerResourcePackUtils.addModAssets(PeculiarCreaturesMod.MOD_ID);
 	}

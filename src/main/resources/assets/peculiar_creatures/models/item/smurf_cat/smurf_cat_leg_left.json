@@ -1,0 +1,39 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "peculiar_creatures:item/smurf_cat",
+		"particle": "peculiar_creatures:item/smurf_cat"
+	},
+	"elements": [
+		{
+			"name": "left_leg",
+			"from": [7.25, 0, 7],
+			"to": [8.25, 1, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.25, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 12.5, 1.5, 13], "texture": "#1"},
+				"east": {"uv": [0, 12.5, 1, 13], "texture": "#1"},
+				"south": {"uv": [2.5, 12.5, 3, 13], "texture": "#1"},
+				"west": {"uv": [1.5, 12.5, 2.5, 13], "texture": "#1"},
+				"up": {"uv": [1.5, 12.5, 1, 11.5], "texture": "#1"},
+				"down": {"uv": [2, 11.5, 1.5, 12.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "left_leg",
+			"from": [7.25, 1, 8],
+			"to": [8.25, 3, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.25, 1, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 13.5, 3, 14.5], "texture": "#1"},
+				"east": {"uv": [2, 13.5, 2.5, 14.5], "texture": "#1"},
+				"south": {"uv": [3.5, 13.5, 4, 14.5], "texture": "#1"},
+				"west": {"uv": [3, 13.5, 3.5, 14.5], "texture": "#1"},
+				"up": {"uv": [3, 13.5, 2.5, 13], "texture": "#1"},
+				"down": {"uv": [3.5, 13, 3, 13.5], "texture": "#1"}
+			}
+		}
+	]
+}

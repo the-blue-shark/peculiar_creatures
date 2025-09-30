@@ -3,6 +3,7 @@ package net.the_blue_shark.peculiar_creatures.item;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import eu.pb4.polymer.core.api.item.PolymerSpawnEggItem;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
+import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,22 +16,26 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.the_blue_shark.peculiar_creatures.PeculiarCreaturesMod;
 import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
+import net.the_blue_shark.peculiar_creatures.item.custom.OptionalPolymerItem;
+import net.the_blue_shark.peculiar_creatures.item.custom.PolymerMusicDisc;
 import net.the_blue_shark.peculiar_creatures.item.custom.SmurfCatHatItem;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
+import org.jetbrains.annotations.Nullable;
 import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.function.Function;
 
 public class ModItems {
     public static final Item SPECTRE_DISC = registerItem("spectre_music_disc", settings ->
-            new SimplePolymerItem(settings.jukeboxPlayable(ModSounds.SPECTRE_KEY).maxCount(1)) {
-                @Override
-                public Item getPolymerItem(ItemStack itemStack, PacketContext context) {
-                    return Items.MUSIC_DISC_CAT;
-                }
-            }
-    );
-    public static final Item SMURF_CAT_SPAWN_EGG = registerItem("smurf_cat_spawn_egg", setting -> new PolymerSpawnEggItem(ModEntities.SMURF_CAT, Items.DOLPHIN_SPAWN_EGG, setting));
+            new PolymerMusicDisc(settings, Items.MUSIC_DISC_CAT, true, ModSounds.SPECTRE_KEY));
+
+    public static final Item SMURF_CAT_SPAWN_EGG = registerItem("smurf_cat_spawn_egg", setting -> new PolymerSpawnEggItem(Items.DOLPHIN_SPAWN_EGG, true, setting.spawnEgg(ModEntities.SMURF_CAT)) {
+        @Override
+        public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context) {
+            return PolymerResourcePackUtils.hasMainPack(context) ? super.getPolymerItemModel(stack, context) : null;
+        }
+    });
+
     public static final Item SMURF_CAT_HAT = registerItem("smurf_cat_hat", SmurfCatHatItem::new);
 
 

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "peculiar_creatures:item/smurf_cat",
+		"particle": "peculiar_creatures:item/smurf_cat"
+	},
+	"elements": [
+		{
+			"name": "right_arm",
+			"from": [7.5, 8, 7.5],
+			"to": [8.5, 12, 8.5],
+			"rotation": {"angle": 7.5, "axis": "z", "origin": [7.5, 5, 8.5]},
+			"faces": {
+				"north": {"uv": [11.5, 12.5, 12, 14.5], "texture": "#1"},
+				"east": {"uv": [11, 12.5, 11.5, 14.5], "texture": "#1"},
+				"south": {"uv": [12.5, 12.5, 13, 14.5], "texture": "#1"},
+				"west": {"uv": [12, 12.5, 12.5, 14.5], "texture": "#1"},
+				"up": {"uv": [12, 12.5, 11.5, 12], "texture": "#1"},
+				"down": {"uv": [12.5, 12, 12, 12.5], "texture": "#1"}
+			}
+		}
+	]
+}

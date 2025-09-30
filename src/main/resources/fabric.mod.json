@@ -3,16 +3,15 @@
 	"id": "peculiar_creatures",
 	"version": "${version}",
 	"name": "Peculiar Creatures",
-	"description": "Adds new creatures to your minecraft world.",
+	"description": "Adds peculiar creatures to your minecraft world.",
 	"authors": [
 		"the_blue_shark"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/the-blue-shark/peculiar_creatures"
 	},
 	"license": "MIT",
-	"icon": "assets/peculiar_creatures/icon.png",
+	"icon": "assets/peculiar_creatures/textures/item/smurf_cat_hat.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -30,7 +29,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"minecraft": "~1.21.9",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

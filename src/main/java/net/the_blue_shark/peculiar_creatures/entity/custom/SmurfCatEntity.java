@@ -15,7 +15,10 @@ import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
 import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
 import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
+import net.minecraft.component.ComponentType;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.CustomModelDataComponent;
+import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.component.type.LoreComponent;
 import net.minecraft.component.type.ProfileComponent;
 import net.minecraft.entity.*;
@@ -32,6 +35,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -62,14 +66,20 @@ import java.util.UUID;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 
+import static net.minecraft.component.DataComponentTypes.CUSTOM_MODEL_DATA;
+import static net.minecraft.component.DataComponentTypes.DYED_COLOR;
+
 public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
     private static final UUID SIZE_MODIFIER_UUID = UUID.fromString("6f7d6b0c-dc69-4c3e-a2c4-8b2d2d2e2b2b");
 
     private final ElementHolder holder;
     private final EntityAttachment attachment;
-    private final ItemDisplayElement leftLeg = new ItemDisplayElement(Items.RED_CONCRETE);
-    private final ItemDisplayElement rightLeg = new ItemDisplayElement(Items.RED_CONCRETE);
-    private final ItemDisplayElement torso = new ItemDisplayElement(PolymerUtils.createPlayerHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjYyYzQ4NWIxODg2ZGJjZTZjMWNhZDE0MGMwZWY4NzYzNTU5ZDQzYTc4NTY0NDY2NGM2ZDVmMzZlMjc1NGVlOCJ9fX0="));
+    private final ItemDisplayElement head = new ItemDisplayElement(createModelItem("smurf_cat_head"));
+    private final ItemDisplayElement chest = new ItemDisplayElement(createModelItem("smurf_cat_chest"));
+    private final ItemDisplayElement rightLeg = new ItemDisplayElement(createModelItem("smurf_cat_leg_right"));
+    private final ItemDisplayElement leftLeg = new ItemDisplayElement(createModelItem("smurf_cat_leg_left"));
+    private final ItemDisplayElement rightArm = new ItemDisplayElement(createModelItem("smurf_cat_arm_right"));
+    private final ItemDisplayElement leftArm = new ItemDisplayElement(createModelItem("smurf_cat_arm_left"));
     private final InteractionElement interaction = InteractionElement.redirect(this);
     private final MobAnchorElement rideAnchor = new MobAnchorElement();
 
@@ -99,18 +109,26 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
                 return this.getAttachment().getPos();
             }
         };
-        this.rideAnchor.setOffset(new Vec3d(0, 1.3f, 0));
 
         leftLeg.setInterpolationDuration(2);
         leftLeg.ignorePositionUpdates();
         rightLeg.setInterpolationDuration(2);
         rightLeg.ignorePositionUpdates();
-        torso.setInterpolationDuration(2);
-        torso.ignorePositionUpdates();
+        leftArm.setInterpolationDuration(2);
+        leftArm.ignorePositionUpdates();
+        rightArm.setInterpolationDuration(2);
+        rightArm.ignorePositionUpdates();
+        chest.setInterpolationDuration(2);
+        chest.ignorePositionUpdates();
+        head.setInterpolationDuration(2);
+        head.ignorePositionUpdates();
         leftLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
         rightLeg.setItemDisplayContext(ItemDisplayContext.FIXED);
-        torso.setItemDisplayContext(ItemDisplayContext.FIXED);
-        this.interaction.setSize(0f, 0f);
+        leftArm.setItemDisplayContext(ItemDisplayContext.FIXED);
+        rightArm.setItemDisplayContext(ItemDisplayContext.FIXED);
+        chest.setItemDisplayContext(ItemDisplayContext.FIXED);
+        head.setItemDisplayContext(ItemDisplayContext.FIXED);
+        this.interaction.setSize(0.3f, 0.6f);
         this.interaction.ignorePositionUpdates();
         this.rideAnchor.ignorePositionUpdates();
         this.updateAnimation();
@@ -118,7 +136,10 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
         this.holder.addPassengerElement(interaction);
         this.holder.addPassengerElement(leftLeg);
         this.holder.addPassengerElement(rightLeg);
-        this.holder.addPassengerElement(torso);
+        this.holder.addPassengerElement(leftArm);
+        this.holder.addPassengerElement(rightArm);
+        this.holder.addPassengerElement(chest);
+        this.holder.addPassengerElement(head);
         this.holder.addElement(rideAnchor);
         this.attachment = new EntityAttachment(this.holder, this, false);
     }
@@ -134,36 +155,55 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
             return;
         }
 
+        this.interaction.setOnFire(this.isOnFire());
+
         this.deathAngle = f;
         this.previousSpeed = speed;
         this.previousLimbPos = limbPos;
 
         this.leftLeg.startInterpolation();
         this.rightLeg.startInterpolation();
-        this.torso.startInterpolation();
-
+        this.leftArm.startInterpolation();
+        this.rightArm.startInterpolation();
+        this.chest.startInterpolation();
+        this.head.startInterpolation();
         stack.clear();
-        stack.translate(0, -0.2f, 0);
+
         stack.rotateY((float) Math.toRadians(- MathHelper.lerpAngleDegrees(0.5f, this.lastYaw, this.getYaw())) + (float) (0.00001f * Math.random()));
         if (this.deathTime > 0) {
             stack.rotate(RotationAxis.POSITIVE_Z.rotation(f * MathHelper.HALF_PI));
         }
-        stack.scale(2);
+
         stack.pushMatrix();
-
-        stack.translate(0, 0.5f, 0);
-        torso.setTransformation(stack);
-
+        stack.translate(0f, 0.5625f, 0f);
+        stack.rotateY((float)Math.toRadians(this.getHeadYaw() - this.getYaw()));
+        stack.rotateX((float)Math.toRadians(this.getPitch()));
+        head.setTransformation(stack);
         stack.popMatrix();
 
         stack.pushMatrix();
-        stack.translate(0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+        stack.translate(0, 0.6875f, 0);
+        chest.setTransformation(stack);
+        stack.popMatrix();
+
+        stack.pushMatrix();
+        stack.translate(0.0390625f, 0.5f, 0.03125f).rotateX(MathHelper.cos(limbPos * 0.6662F) * 0.7F * speed);
         leftLeg.setTransformation(stack);
         stack.popMatrix();
 
         stack.pushMatrix();
-        stack.translate(-0.15f, 0.4f, 0).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 1.4F * speed).translate(0, -0.125f, 0).scale(0.5f, 0.8f, 0.5f);
+        stack.translate(-0.0390625f,0.5f, 0.03125f).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 0.7F * speed);
         rightLeg.setTransformation(stack);
+        stack.popMatrix();
+
+        stack.pushMatrix();
+        stack.translate(0.171875f,0.1875f, 0f).rotateX(MathHelper.cos(limbPos * 0.6662F) * 0.7F * speed);
+        leftArm.setTransformation(stack);
+        stack.popMatrix();
+
+        stack.pushMatrix();
+        stack.translate(-0.171875f,0.1875f, 0f).rotateX(MathHelper.cos(limbPos * 0.6662F + 3.1415927F) * 0.7F * speed);
+        rightArm.setTransformation(stack);
         stack.popMatrix();
     }
 
@@ -201,7 +241,6 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
         this.holder.tick();
     }
 
-    /* SOUNDS */
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
@@ -261,7 +300,20 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
     @Override
     public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayerEntity player) {
         if(!PolymerResourcePackUtils.hasMainPack(player)) {
-            return List.of(new Pair<>(EquipmentSlot.HEAD, PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=")));
+            ItemStack head = PolymerUtils.createPlayerHead("e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTM2Y2E0ZTA5YmJmYzVhMjFhMGNhZWIzZTUzYjIwMWE4YWJlNWUxNTk3ZjA3MTg0NGUzNjgwMmQ2MGQ0Y2M2OCJ9fX0=");
+            ItemStack chest = new ItemStack(Items.LEATHER_CHESTPLATE);
+            chest.set(DYED_COLOR, new DyedColorComponent(3847130));
+            ItemStack leggings = new ItemStack(Items.LEATHER_LEGGINGS);
+            leggings.set(DYED_COLOR, new DyedColorComponent(16777215));
+            ItemStack boots = new ItemStack(Items.LEATHER_BOOTS);
+            boots.set(DYED_COLOR, new DyedColorComponent(16777215));
+
+            return List.of(
+                    new Pair<>(EquipmentSlot.HEAD, head),
+                    new Pair<>(EquipmentSlot.CHEST, chest),
+                    new Pair<>(EquipmentSlot.LEGS, leggings),
+                    new Pair<>(EquipmentSlot.FEET, boots)
+            );
         }
         return List.of();
     }
@@ -276,5 +328,15 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
             ));
         }
     }
+
+    private ItemStack createModelItem(String modelKey) { ItemStack stack = new ItemStack(Items.WHITE_DYE);
+        List<String> keys = List.of(modelKey);
+        CustomModelDataComponent cmd = new CustomModelDataComponent(
+                List.of(),
+                List.of(),
+                keys,
+                List.of());
+        stack.set(DataComponentTypes.CUSTOM_MODEL_DATA, cmd);
+        return stack; }
 
 }
