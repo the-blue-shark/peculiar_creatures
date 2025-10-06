@@ -266,7 +266,7 @@ public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.BEDROCK);
+        return stack.isOf(Items.SWEET_BERRIES);
     }
 
     @Nullable

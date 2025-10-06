@@ -12,7 +12,7 @@ import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
 
 public class ModEntitySpawns {
     public static void addSpawns() {
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.DARK_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.MEADOW),
                 SpawnGroup.CREATURE, ModEntities.SMURF_CAT, 10, 1, 1);
 
         SpawnRestriction.register(ModEntities.SMURF_CAT, SpawnLocationTypes.ON_GROUND,
