@@ -11,7 +11,8 @@ base {
 }
 
 repositories {
-	maven { url 'https://maven.nucleoid.xyz' } // You should have it
+	maven { url 'https://maven.nucleoid.xyz' } // Polymer
+	maven { url "https://maven.tomalbrc.de" } // bil
 }
 
 fabricApi {
@@ -29,6 +30,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+	//bil
+	modImplementation include("de.tomalbrc:blockbench-import-library:${project.bil_version}")
+
 	//Polymer
 	modImplementation include("eu.pb4:polymer-core:${project.polymer_version}")
 	modImplementation include("eu.pb4:polymer-resource-pack:${project.polymer_version}")
@@ -37,8 +41,7 @@ dependencies {
 	modImplementation include("eu.pb4:polymer-blocks:${project.polymer_version}")
 
 	//Server-translations
-	modImplementation include("xyz.nucleoid:server-translations-api:${project.server_translations_api}")
-	
+	modImplementation include("xyz.nucleoid:server-translations-api:${project.server_translations_api_version}")
 }
 
 processResources {

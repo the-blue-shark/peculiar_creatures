@@ -1,54 +1,39 @@
 package net.the_blue_shark.peculiar_creatures.entity.custom;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
-import eu.pb4.polymer.common.impl.CompatStatus;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.core.api.utils.PolymerUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
-import eu.pb4.polymer.virtualentity.api.VirtualEntityUtils;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
 import eu.pb4.polymer.virtualentity.api.elements.InteractionElement;
 import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
 import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
 import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
-import net.minecraft.component.ComponentType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.CustomModelDataComponent;
 import net.minecraft.component.type.DyedColorComponent;
-import net.minecraft.component.type.LoreComponent;
-import net.minecraft.component.type.ProfileComponent;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.*;
 import net.minecraft.network.packet.s2c.play.EntityAttributesS2CPacket;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
@@ -59,19 +44,15 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4x3fStack;
 import xyz.nucleoid.packettweaker.PacketContext;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 
-import static net.minecraft.component.DataComponentTypes.CUSTOM_MODEL_DATA;
 import static net.minecraft.component.DataComponentTypes.DYED_COLOR;
 
 public class SmurfCatEntity extends AnimalEntity implements PolymerEntity {
-    private static final UUID SIZE_MODIFIER_UUID = UUID.fromString("6f7d6b0c-dc69-4c3e-a2c4-8b2d2d2e2b2b");
-
     private final ElementHolder holder;
     private final EntityAttachment attachment;
     private final ItemDisplayElement head = new ItemDisplayElement(createModelItem("smurf_cat_head"));
