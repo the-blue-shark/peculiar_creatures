@@ -2,8 +2,8 @@ package net.the_blue_shark.peculiar_creatures;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.the_blue_shark.peculiar_creatures.datagen.*;
 
 public class PeculiarCreaturesModDataGenerator implements DataGeneratorEntrypoint {
@@ -20,6 +20,6 @@ public class PeculiarCreaturesModDataGenerator implements DataGeneratorEntrypoin
 	}
 
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
 	}
 }

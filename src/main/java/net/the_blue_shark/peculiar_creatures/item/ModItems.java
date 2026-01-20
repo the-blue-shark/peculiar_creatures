@@ -4,16 +4,16 @@ import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import eu.pb4.polymer.core.api.item.PolymerSpawnEggItem;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.the_blue_shark.peculiar_creatures.PeculiarCreaturesMod;
 import net.the_blue_shark.peculiar_creatures.entity.ModEntities;
 import net.the_blue_shark.peculiar_creatures.item.custom.OptionalPolymerItem;
@@ -41,21 +41,21 @@ public class ModItems {
 
 
 
-    public static final ItemGroup ITEM_GROUP = PolymerItemGroupUtils.builder()
-            .displayName(Text.translatable("itemGroup.peculiar_creatures.item_group"))
-            .icon(ModItems.SPECTRE_DISC::getDefaultStack).entries((context, entries) -> {
-                entries.add(ModItems.SPECTRE_DISC);
-                entries.add(ModItems.SMURF_CAT_SPAWN_EGG);
-                entries.add(ModItems.SMURF_CAT_HAT);
+    public static final CreativeModeTab ITEM_GROUP = PolymerItemGroupUtils.builder()
+            .title(Component.translatable("itemGroup.peculiar_creatures.item_group"))
+            .icon(ModItems.SPECTRE_DISC::getDefaultInstance).displayItems((context, entries) -> {
+                entries.accept(ModItems.SPECTRE_DISC);
+                entries.accept(ModItems.SMURF_CAT_SPAWN_EGG);
+                entries.accept(ModItems.SMURF_CAT_HAT);
             }).build();
 
 
-    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
-        return Registry.register(Registries.ITEM, Identifier.of(PeculiarCreaturesMod.MOD_ID, name),
-                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(PeculiarCreaturesMod.MOD_ID, name)))));
+    private static Item registerItem(String name, Function<Item.Properties, Item> function) {
+        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, name),
+                function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, name)))));
     }
     public static void registerModItems() {
-        PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(PeculiarCreaturesMod.MOD_ID, "item_group"), ITEM_GROUP);
+        PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, "item_group"), ITEM_GROUP);
         PeculiarCreaturesMod.LOGGER.info("Registering Mod Items for " + PeculiarCreaturesMod.MOD_ID);
     }
 }

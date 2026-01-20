@@ -3,7 +3,7 @@
 	"package": "net.the_blue_shark.peculiar_creatures.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ZombieEntityAccessor"
+      "ZombieAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
