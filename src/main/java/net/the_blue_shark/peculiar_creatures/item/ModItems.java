@@ -36,6 +36,13 @@ public class ModItems {
         }
     });
 
+    public static final Item SHREK_SPAWN_EGG = registerItem("shrek_spawn_egg", setting -> new PolymerSpawnEggItem(Items.DOLPHIN_SPAWN_EGG, true, setting.spawnEgg(ModEntities.SHREK)) {
+        @Override
+        public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context) {
+            return PolymerResourcePackUtils.hasMainPack(context) ? super.getPolymerItemModel(stack, context) : null;
+        }
+    });
+
     public static final Item SMURF_CAT_HAT = registerItem("smurf_cat_hat", SmurfCatHatItem::new);
 
 

@@ -1,11 +1,12 @@
 {
-	"required": true,
-	"package": "net.the_blue_shark.peculiar_creatures.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-      "ZombieAccessor"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.the_blue_shark.peculiar_creatures.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "JukeboxBlockEntityMixin",
+    "ZombieAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

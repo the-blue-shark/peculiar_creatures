@@ -70,8 +70,8 @@ public class SmurfCatEntity extends Animal implements PolymerEntity {
     private float previousLimbPos = Float.MIN_NORMAL;
     private float deathAngle;
 
-    public SmurfCatEntity(EntityType<SmurfCatEntity> entityEntityType, Level world) {
-        super(entityEntityType, world);
+    public SmurfCatEntity(EntityType<SmurfCatEntity> entityEntityType, Level level) {
+        super(entityEntityType, level);
         this.holder = new ElementHolder() {
             @Override
             protected void notifyElementsOfPositionUpdate(Vec3 newPos, Vec3 delta) {
@@ -266,7 +266,7 @@ public class SmurfCatEntity extends Animal implements PolymerEntity {
         if(PolymerResourcePackUtils.hasMainPack(player)) {
             data.add(SynchedEntityData.DataValue.create(EntityTrackedData.FLAGS, (byte) (1 << EntityTrackedData.INVISIBLE_FLAG_INDEX)));
             data.add(SynchedEntityData.DataValue.create(ArmorStand.DATA_CLIENT_FLAGS, (byte) (ArmorStand.CLIENT_FLAG_SMALL | ArmorStand.CLIENT_FLAG_MARKER)));
-            data.add(new SynchedEntityData.DataValue<>(EntityAccessor.getNO_GRAVITY().id(), EntityAccessor.getNO_GRAVITY().serializer(), true));
+            data.add(new SynchedEntityData.DataValue<>(EntityAccessor.getDATA_NO_GRAVITY().id(), EntityAccessor.getDATA_NO_GRAVITY().serializer(), true));
         } else {
             data.add(SynchedEntityData.DataValue.create(ZombieAccessor.getBabyFlag(), true));
         }
@@ -319,4 +319,6 @@ public class SmurfCatEntity extends Animal implements PolymerEntity {
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
         return null;
     }
+    
+
 }

@@ -13,6 +13,9 @@ base {
 repositories {
 	maven { url 'https://maven.nucleoid.xyz' } // Polymer
 	maven { url "https://maven.tomalbrc.de" } // bil
+	maven { url "https://repo.lclpnet.work/repository/internal"} //notica
+	maven { url "https://maven.shedaniel.me/" }
+	maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 fabricApi {
@@ -34,14 +37,16 @@ dependencies {
 	modImplementation include("de.tomalbrc:blockbench-import-library:${project.bil_version}")
 
 	//Polymer
-	modImplementation include("eu.pb4:polymer-core:${project.polymer_version}")
-	modImplementation include("eu.pb4:polymer-resource-pack:${project.polymer_version}")
-	modImplementation include("eu.pb4:polymer-networking:${project.polymer_version}")
-	modImplementation include("eu.pb4:polymer-virtual-entity:${project.polymer_version}")
-	modImplementation include("eu.pb4:polymer-blocks:${project.polymer_version}")
+	modImplementation "eu.pb4:polymer-core:${project.polymer_version}"
+	modImplementation "eu.pb4:polymer-resource-pack:${project.polymer_version}"
+	modImplementation "eu.pb4:polymer-networking:${project.polymer_version}"
+	modImplementation "eu.pb4:polymer-virtual-entity:${project.polymer_version}"
+	modImplementation "eu.pb4:polymer-blocks:${project.polymer_version}"
 
 	//Server-translations
 	modImplementation include("xyz.nucleoid:server-translations-api:${project.server_translations_api_version}")
+
+	modImplementation "work.lclpnet.mods:notica:${project.notica_version}"
 }
 
 processResources {
