@@ -36,7 +36,7 @@ public class ModItems {
         }
     });
 
-    public static final Item SHREK_SPAWN_EGG = registerItem("shrek_spawn_egg", setting -> new PolymerSpawnEggItem(Items.DOLPHIN_SPAWN_EGG, true, setting.spawnEgg(ModEntities.SHREK)) {
+    public static final Item SHREK_SPAWN_EGG = registerItem("shrek_spawn_egg", setting -> new PolymerSpawnEggItem(Items.TURTLE_SPAWN_EGG, true, setting.spawnEgg(ModEntities.SHREK)) {
         @Override
         public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context) {
             return PolymerResourcePackUtils.hasMainPack(context) ? super.getPolymerItemModel(stack, context) : null;
@@ -54,6 +54,7 @@ public class ModItems {
                 entries.accept(ModItems.SPECTRE_DISC);
                 entries.accept(ModItems.SMURF_CAT_SPAWN_EGG);
                 entries.accept(ModItems.SMURF_CAT_HAT);
+                entries.accept(ModItems.SHREK_SPAWN_EGG);
             }).build();
 
 

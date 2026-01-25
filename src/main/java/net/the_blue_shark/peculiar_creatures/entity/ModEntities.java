@@ -27,7 +27,7 @@ public class ModEntities {
             ModEntities.register(
                     Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, "shrek"),
                     EntityType.Builder.of(ShrekEntity::new, MobCategory.MONSTER)
-                            .sized(2f, 3f)
+                            .sized(1f, 2.5f)
             );
 
 
@@ -40,6 +40,7 @@ public class ModEntities {
 
     public static void registerModEntities() {
         FabricDefaultAttributeRegistry.register(ModEntities.SMURF_CAT, SmurfCatEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SHREK, ShrekEntity.createAttributes());
 
         PeculiarCreaturesMod.LOGGER.info("Registering Mod Entities for " + PeculiarCreaturesMod.MOD_ID);
     }

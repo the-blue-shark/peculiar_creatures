@@ -3,6 +3,10 @@
 
   "item.peculiar_creatures.smurf_cat_spawn_egg": "Smurf Cat Spawn Egg",
   "item.peculiar_creatures.smurf_cat_hat": "The Smurfish Cap",
+  "entity.peculiar_creatures.smurf_cat": "Smurf Cat",
+
+  "item.peculiar_creatures.shrek_spawn_egg": "Shrek Spawn Egg",
+  "entity.peculiar_creatures.shrek": "Shrek",
 
   "item.peculiar_creatures.spectre_music_disc": "The Spectre Music Disc",
   "item.peculiar_creatures.spectre_music_disc.desc": "Alan Walker - The Spectre",

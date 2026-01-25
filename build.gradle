@@ -13,6 +13,7 @@ base {
 repositories {
 	maven { url 'https://maven.nucleoid.xyz' } // Polymer
 	maven { url "https://maven.tomalbrc.de" } // bil
+	maven { url 'https://maven.blamejared.com/' } // bil
 	maven { url "https://repo.lclpnet.work/repository/internal"} //notica
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.terraformersmc.com/releases/" }
@@ -46,7 +47,8 @@ dependencies {
 	//Server-translations
 	modImplementation include("xyz.nucleoid:server-translations-api:${project.server_translations_api_version}")
 
-	modImplementation "work.lclpnet.mods:notica:${project.notica_version}"
+	modImplementation ("work.lclpnet.mods:notica:${project.notica_version}")
+	modApi "me.shedaniel.cloth:cloth-config-fabric:21.11.153"
 }
 
 processResources {
