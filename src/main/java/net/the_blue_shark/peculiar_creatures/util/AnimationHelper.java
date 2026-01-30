@@ -23,7 +23,7 @@ public class AnimationHelper {
     }
 
     public static void updateHurtVariant(LivingEntity entity, AnimatedHolder holder) {
-        updateHurtColor(entity, holder); // if you are using animated java, you could change to a different variant or use a color like we do here
+        updateHurtColor(entity, holder);
     }
 
     public static void updateHurtColor(LivingEntity entity, AnimatedHolder holder) {

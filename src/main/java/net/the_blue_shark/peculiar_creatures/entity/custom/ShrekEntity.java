@@ -9,6 +9,7 @@ import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
+import eu.pb4.polymer.virtualentity.api.tracker.DisplayTrackedData;
 import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
 import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
 import net.minecraft.network.chat.Component;
@@ -31,10 +32,12 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.the_blue_shark.peculiar_creatures.entity.goal.AnimatedMeleeAttackGoal;
 import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
@@ -44,11 +47,10 @@ import xyz.nucleoid.packettweaker.PacketContext;
 import java.util.List;
 import java.util.Optional;
 
-public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ NeutralMob, AnimatedEntity {
+public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEntity, AnimatedMeleeAttackGoal.IMeleeAttackAnimatable {
     public static final Identifier ID = Util.id("shrek");
     public static final Model MODEL = Util.loadBbModel(ID);
     private final EntityHolder<ShrekEntity> holder;
-    private final EntityAttachment attachment;
 
 
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
@@ -74,8 +76,8 @@ public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ Neu
                 }
                 return false;
             }
-        }; // create a holder for living entities, for head rotations and other features
-        this.attachment = new EntityAttachment(this.holder, this, false);
+        };
+        EntityAttachment.ofTicking(this.holder, this);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -92,20 +94,20 @@ public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ Neu
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 0.9, 32.0F));
+        this.goalSelector.addGoal(1, new AnimatedMeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 1.0, 32.0F));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new ResetUniversalAngerTargetGoal<>(this, true));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0));
     }
 
-
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext context) {
         if(PolymerResourcePackUtils.hasMainPack(context.getPlayer())) {
-            return EntityType.ARMOR_STAND;
+            return EntityType.BLOCK_DISPLAY;
         } else {
             return EntityType.WARDEN;
         }
@@ -114,9 +116,17 @@ public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ Neu
     @Override
     public void modifyRawTrackedData(List<SynchedEntityData.DataValue<?>> data, ServerPlayer player, boolean initial) {
         if(PolymerResourcePackUtils.hasMainPack(player)) {
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.FLAGS, (byte) (1 << EntityTrackedData.INVISIBLE_FLAG_INDEX)));
-            data.add(SynchedEntityData.DataValue.create(ArmorStand.DATA_CLIENT_FLAGS, (byte) (ArmorStand.CLIENT_FLAG_SMALL | ArmorStand.CLIENT_FLAG_MARKER)));
-            data.add(new SynchedEntityData.DataValue<>(EntityAccessor.getDATA_NO_GRAVITY().id(), EntityAccessor.getDATA_NO_GRAVITY().serializer(), true));
+            if (this instanceof Entity entity) {
+                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.WIDTH, entity.getBbWidth()));
+                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.HEIGHT, entity.getBbHeight()));
+            }
+
+            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.SHADOW_RADIUS, this.getShadowRadius()));
+            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.TELEPORTATION_DURATION, Math.max(0, this.getTeleportDuration())));
+
+            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.SILENT, true));
+            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NO_GRAVITY, true));
+            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NAME_VISIBLE, false));
         } else {
             data.add(SynchedEntityData.DataValue.create(
                     EntityTrackedData.CUSTOM_NAME,
@@ -132,13 +142,15 @@ public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ Neu
     @Override
     public void tick() {
         super.tick();
-
         if (this.tickCount % 2 == 0) {
-            AnimationHelper.updateWalkAnimation(this, this.holder); // util methods, see below
-            AnimationHelper.updateHurtVariant(this, this.holder); // util methods
+            AnimationHelper.updateWalkAnimation(this, this.holder);
             AnimationHelper.updateHurtColor(this, this.holder);
         }
-        this.holder.tick();
+    }
+
+    @Override
+    public void meleeAttackAnimation() {
+        this.holder.getAnimator().playAnimation("attack", 10);
     }
 
     @Override
@@ -202,12 +214,6 @@ public class ShrekEntity extends PathfinderMob implements /*PolymerEntity,*/ Neu
         super.readAdditionalSaveData(valueInput);
         this.readPersistentAngerSaveData(this.level(), valueInput);
     }
-
-    /*@Override
-    public boolean canAttack(LivingEntity target) {
-        return this.isAngryAt(target);
-    }*/
-
 
     @Override
     public void setTarget(@Nullable LivingEntity target) {
