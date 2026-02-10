@@ -6,5 +6,11 @@
         "stream": true
       }
     ]
+  },
+  "shrek_roar": {
+    "subtitle": "subtitle.peculiar_creatures.shrek_roar",
+    "sounds": [
+    "peculiar_creatures:shrek_roar"
+    ]
   }
 }

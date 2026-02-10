@@ -39,18 +39,22 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.the_blue_shark.peculiar_creatures.entity.goal.AnimatedMeleeAttackGoal;
 import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
+import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
 import org.jspecify.annotations.Nullable;
 import xyz.nucleoid.packettweaker.PacketContext;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEntity, AnimatedMeleeAttackGoal.IMeleeAttackAnimatable {
     public static final Identifier ID = Util.id("shrek");
     public static final Model MODEL = Util.loadBbModel(ID);
     private final EntityHolder<ShrekEntity> holder;
+    private final Set<LivingEntity> firstHitReacted = new HashSet<>();
 
 
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
@@ -197,6 +201,12 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
                 this.setTarget(living);
                 this.setPersistentAngerTarget(EntityReference.of(living));
                 this.startPersistentAngerTimer();
+
+                if (firstHitReacted.add(living)) {
+                    this.holder.getAnimator().playAnimation("roar", 10);
+                    this.playSound(ModSounds.SHREK_ROAR, 2.0F, 1.0F);
+                }
+
             }
         }
 

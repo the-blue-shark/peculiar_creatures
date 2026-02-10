@@ -17,6 +17,7 @@ import java.util.Optional;
 
 public class ModSounds {
 
+    public static final SoundEvent SHREK_ROAR = registerSoundEvent("shrek_roar", SoundEvents.WARDEN_ROAR);
     public static final SoundEvent SPECTRE = registerSoundEvent("spectre", SoundEvents.MUSIC_DISC_CHIRP);
     public static final ResourceKey<JukeboxSong> SPECTRE_KEY = of("spectre");
 
