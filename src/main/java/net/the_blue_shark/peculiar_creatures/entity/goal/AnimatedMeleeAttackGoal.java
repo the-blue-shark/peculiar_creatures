@@ -104,6 +104,9 @@ public class AnimatedMeleeAttackGoal extends AnimatedGoal {
 
     protected boolean canAttack() {
         LivingEntity target = this.mob.getTarget();
+        if (target == null || !target.isAlive()) {
+            return false;
+        }
         return this.mob.isWithinMeleeAttackRange(target) && this.mob.getSensing().hasLineOfSight(target);
     }
 }
