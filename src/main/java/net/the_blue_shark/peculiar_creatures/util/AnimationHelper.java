@@ -16,6 +16,7 @@ public class AnimationHelper {
         if (entity.walkAnimation.isMoving() && entity.walkAnimation.speed() > 0.02) {
             animator.playAnimation("walk", priority);
             animator.pauseAnimation("idle");
+
         } else {
             animator.pauseAnimation("walk");
             animator.playAnimation("idle", priority, true);

@@ -1,0 +1,2704 @@
+{
+	"meta": {
+		"format": "animated-java:format/blueprint",
+		"format_version": "1.8.1",
+		"uuid": "cf527f87-2615-40df-ce75-72fd54c0dcb2",
+		"save_location": "C:\\Users\\LukasNaeyaert\\Documents\\mods\\peculiar_creatures\\src\\main\\resources\\model\\peculiar_creatures\\appa.ajblueprint",
+		"last_used_export_namespace": ""
+	},
+	"resolution": {
+		"width": 128,
+		"height": 128
+	},
+	"elements": [
+		{
+			"name": "bisonrot",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-48.75, 0.8, -16],
+			"to": [56.25, 60.8, 44],
+			"autouv": 0,
+			"color": 5,
+			"origin": [0, -0.2, 14],
+			"faces": {
+				"north": {
+					"uv": [16, 16, 44, 32],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 16, 16, 32],
+					"texture": 18
+				},
+				"south": {
+					"uv": [60, 16, 88, 32],
+					"texture": 18
+				},
+				"west": {
+					"uv": [44, 16, 60, 32],
+					"texture": 18
+				},
+				"up": {
+					"uv": [44, 16, 16, 0],
+					"texture": 18
+				},
+				"down": {
+					"uv": [72, 0, 44, 16],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "b7cd593a-33cf-467f-a0b0-f923696a3268"
+		},
+		{
+			"name": "head",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-97.5, -2.95, -12.25],
+			"to": [-48.75, 49.55, 40.25],
+			"autouv": 0,
+			"color": 6,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 32],
+			"faces": {
+				"north": {
+					"uv": [14, 46, 27, 60],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 46, 14, 60],
+					"texture": 18
+				},
+				"south": {
+					"uv": [41, 46, 54, 60],
+					"texture": 18
+				},
+				"west": {
+					"uv": [27, 46, 41, 60],
+					"texture": 18
+				},
+				"up": {
+					"uv": [27, 46, 14, 32],
+					"texture": 18
+				},
+				"down": {
+					"uv": [40, 32, 27, 46],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "07bd2bc7-7de9-50cd-a134-071e8715fe49"
+		},
+		{
+			"name": "head",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-99.5625, 24.9875, -14.3125],
+			"to": [-46.6875, 51.6125, 42.3125],
+			"autouv": 0,
+			"color": 5,
+			"inflate": 0.75,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [54, 32],
+			"faces": {
+				"north": {
+					"uv": [68, 46, 81, 52],
+					"texture": 18
+				},
+				"east": {
+					"uv": [54, 46, 68, 52],
+					"texture": 18
+				},
+				"south": {
+					"uv": [95, 46, 108, 52],
+					"texture": 18
+				},
+				"west": {
+					"uv": [81, 46, 95, 52],
+					"texture": 18
+				},
+				"up": {
+					"uv": [81, 46, 68, 32],
+					"texture": 18
+				},
+				"down": {
+					"uv": [94, 32, 81, 46],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "ba24600c-a3c1-eea8-734b-bb2d5c998742"
+		},
+		{
+			"name": "head_child_horns",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-75, 34.55, 40.25],
+			"to": [-67.5, 45.8, 47.75],
+			"autouv": 0,
+			"color": 8,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [60, 32],
+			"faces": {
+				"north": {
+					"uv": [62, 34, 64, 37],
+					"texture": 18
+				},
+				"east": {
+					"uv": [60, 34, 62, 37],
+					"texture": 18
+				},
+				"south": {
+					"uv": [66, 34, 68, 37],
+					"texture": 18
+				},
+				"west": {
+					"uv": [64, 34, 66, 37],
+					"texture": 18
+				},
+				"up": {
+					"uv": [64, 34, 62, 32],
+					"texture": 18
+				},
+				"down": {
+					"uv": [66, 32, 64, 34],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "03db335a-ff98-013e-8ffc-34b0fb1b34b5"
+		},
+		{
+			"name": "head_child_horns",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-75, 34.55, -19.75],
+			"to": [-67.5, 45.8, -12.25],
+			"autouv": 0,
+			"color": 3,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [54, 41],
+			"faces": {
+				"north": {
+					"uv": [56, 43, 58, 46],
+					"texture": 18
+				},
+				"east": {
+					"uv": [54, 43, 56, 46],
+					"texture": 18
+				},
+				"south": {
+					"uv": [60, 43, 62, 46],
+					"texture": 18
+				},
+				"west": {
+					"uv": [58, 43, 60, 46],
+					"texture": 18
+				},
+				"up": {
+					"uv": [58, 43, 56, 41],
+					"texture": 18
+				},
+				"down": {
+					"uv": [60, 41, 58, 43],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "6d603580-4fec-dd9e-4e56-0bf10e28ddc7"
+		},
+		{
+			"name": "leg6",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-45, -21.7, 25.25],
+			"to": [-18.75, 27.05, 51.5],
+			"autouv": 0,
+			"color": 0,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [56, 88],
+			"faces": {
+				"north": {
+					"uv": [63, 95, 70, 108],
+					"texture": 18
+				},
+				"east": {
+					"uv": [56, 95, 63, 108],
+					"texture": 18
+				},
+				"south": {
+					"uv": [77, 95, 84, 108],
+					"texture": 18
+				},
+				"west": {
+					"uv": [70, 95, 77, 108],
+					"texture": 18
+				},
+				"up": {
+					"uv": [70, 95, 63, 88],
+					"texture": 18
+				},
+				"down": {
+					"uv": [77, 88, 70, 95],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "1748c99e-bbb9-0b56-872d-e81b781ecd20"
+		},
+		{
+			"name": "leg3",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-45, -21.7, -23.5],
+			"to": [-18.75, 27.05, 2.75],
+			"autouv": 0,
+			"color": 4,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [56, 108],
+			"faces": {
+				"north": {
+					"uv": [63, 115, 70, 128],
+					"texture": 18
+				},
+				"east": {
+					"uv": [56, 115, 63, 128],
+					"texture": 18
+				},
+				"south": {
+					"uv": [77, 115, 84, 128],
+					"texture": 18
+				},
+				"west": {
+					"uv": [70, 115, 77, 128],
+					"texture": 18
+				},
+				"up": {
+					"uv": [70, 115, 63, 108],
+					"texture": 18
+				},
+				"down": {
+					"uv": [77, 108, 70, 115],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "5834a040-6c2a-4dcc-99a6-14ed9c0d8f62"
+		},
+		{
+			"name": "leg5",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-9.375, -21.7, 25.25],
+			"to": [16.875, 27.05, 51.5],
+			"autouv": 0,
+			"color": 8,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [28, 88],
+			"faces": {
+				"north": {
+					"uv": [35, 95, 42, 108],
+					"texture": 18
+				},
+				"east": {
+					"uv": [28, 95, 35, 108],
+					"texture": 18
+				},
+				"south": {
+					"uv": [49, 95, 56, 108],
+					"texture": 18
+				},
+				"west": {
+					"uv": [42, 95, 49, 108],
+					"texture": 18
+				},
+				"up": {
+					"uv": [42, 95, 35, 88],
+					"texture": 18
+				},
+				"down": {
+					"uv": [49, 88, 42, 95],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "f54eb947-a1df-948d-1361-e7c210e6b7de"
+		},
+		{
+			"name": "leg2",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-9.375, -21.7, -23.5],
+			"to": [16.875, 27.05, 2.75],
+			"autouv": 0,
+			"color": 2,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [28, 108],
+			"faces": {
+				"north": {
+					"uv": [35, 115, 42, 128],
+					"texture": 18
+				},
+				"east": {
+					"uv": [28, 115, 35, 128],
+					"texture": 18
+				},
+				"south": {
+					"uv": [49, 115, 56, 128],
+					"texture": 18
+				},
+				"west": {
+					"uv": [42, 115, 49, 128],
+					"texture": 18
+				},
+				"up": {
+					"uv": [42, 115, 35, 108],
+					"texture": 18
+				},
+				"down": {
+					"uv": [49, 108, 42, 115],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "530d8fab-fa18-bd6c-3a2d-80d27c001efe"
+		},
+		{
+			"name": "leg4",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [26.25, -21.7, 25.25],
+			"to": [52.5, 27.05, 51.5],
+			"autouv": 0,
+			"color": 3,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 88],
+			"faces": {
+				"north": {
+					"uv": [7, 95, 14, 108],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 95, 7, 108],
+					"texture": 18
+				},
+				"south": {
+					"uv": [21, 95, 28, 108],
+					"texture": 18
+				},
+				"west": {
+					"uv": [14, 95, 21, 108],
+					"texture": 18
+				},
+				"up": {
+					"uv": [14, 95, 7, 88],
+					"texture": 18
+				},
+				"down": {
+					"uv": [21, 88, 14, 95],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "46e2c330-771f-e495-795c-84a11fc63d34"
+		},
+		{
+			"name": "leg1",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [26.25, -21.7, -23.5],
+			"to": [52.5, 27.05, 2.75],
+			"autouv": 0,
+			"color": 5,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 108],
+			"faces": {
+				"north": {
+					"uv": [7, 115, 14, 128],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 115, 7, 128],
+					"texture": 18
+				},
+				"south": {
+					"uv": [21, 115, 28, 128],
+					"texture": 18
+				},
+				"west": {
+					"uv": [14, 115, 21, 128],
+					"texture": 18
+				},
+				"up": {
+					"uv": [14, 115, 7, 108],
+					"texture": 18
+				},
+				"down": {
+					"uv": [21, 108, 14, 115],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "952647a4-af31-5d41-2df1-d317ef2b1d20"
+		},
+		{
+			"name": "tail",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [56.25, 30.8, -12.25],
+			"to": [116.25, 60.8, 40.25],
+			"autouv": 0,
+			"color": 9,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 60],
+			"faces": {
+				"north": {
+					"uv": [14, 74, 30, 82],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 74, 14, 82],
+					"texture": 18
+				},
+				"south": {
+					"uv": [44, 74, 60, 82],
+					"texture": 18
+				},
+				"west": {
+					"uv": [30, 74, 44, 82],
+					"texture": 18
+				},
+				"up": {
+					"uv": [30, 74, 14, 60],
+					"texture": 18
+				},
+				"down": {
+					"uv": [46, 60, 30, 74],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "5ef1633a-40d7-d460-cf5e-3771b622ff95"
+		},
+		{
+			"name": "tail2",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [116.25, 30.8, -8.5],
+			"to": [183.75, 53.3, 36.5],
+			"autouv": 0,
+			"color": 6,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [60, 60],
+			"faces": {
+				"north": {
+					"uv": [72, 72, 90, 78],
+					"texture": 18
+				},
+				"east": {
+					"uv": [60, 72, 72, 78],
+					"texture": 18
+				},
+				"south": {
+					"uv": [102, 72, 120, 78],
+					"texture": 18
+				},
+				"west": {
+					"uv": [90, 72, 102, 78],
+					"texture": 18
+				},
+				"up": {
+					"uv": [90, 72, 72, 60],
+					"texture": 18
+				},
+				"down": {
+					"uv": [108, 60, 90, 72],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "b25b07ab-12cc-a0a2-abc5-03378b646063"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-49.025, 0.525, -16.275],
+			"to": [56.525, 61.075, 44.275],
+			"autouv": 0,
+			"color": 7,
+			"inflate": 0.1,
+			"origin": [0, -0.2, 14],
+			"faces": {
+				"north": {
+					"uv": [16, 16, 44, 32],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 16, 16, 32],
+					"texture": 0
+				},
+				"south": {
+					"uv": [60, 16, 88, 32],
+					"texture": 0
+				},
+				"west": {
+					"uv": [44, 16, 60, 32],
+					"texture": 0
+				},
+				"up": {
+					"uv": [44, 16, 16, 0],
+					"texture": 0
+				},
+				"down": {
+					"uv": [72, 0, 44, 16],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "bec2111a-f2d7-7145-2ada-07f7b625887c"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-41.25, 60.8, -19.75],
+			"to": [-37.5, 68.3, 47.75],
+			"autouv": 0,
+			"color": 6,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 32],
+			"faces": {
+				"north": {
+					"uv": [18, 50, 19, 52],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 50, 18, 52],
+					"texture": 0
+				},
+				"south": {
+					"uv": [37, 50, 38, 52],
+					"texture": 0
+				},
+				"west": {
+					"uv": [19, 50, 37, 52],
+					"texture": 0
+				},
+				"up": {
+					"uv": [19, 50, 18, 32],
+					"texture": 0
+				},
+				"down": {
+					"uv": [20, 32, 19, 50],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "aa35a4ca-68f4-afd2-84b3-22db3fdd28b9"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-45, 64.55, 2.75],
+			"to": [-41.25, 72.05, 25.25],
+			"autouv": 0,
+			"color": 0,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 42],
+			"faces": {
+				"north": {
+					"uv": [6, 48, 7, 50],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 48, 6, 50],
+					"texture": 0
+				},
+				"south": {
+					"uv": [13, 48, 14, 50],
+					"texture": 0
+				},
+				"west": {
+					"uv": [7, 48, 13, 50],
+					"texture": 0
+				},
+				"up": {
+					"uv": [7, 48, 6, 42],
+					"texture": 0
+				},
+				"down": {
+					"uv": [8, 42, 7, 48],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "cd18b9c4-9df5-29bd-b45c-bd0868e07752"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [22.5, 68.3, -4.75],
+			"to": [26.25, 72.05, 32.75],
+			"autouv": 0,
+			"color": 9,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [20, 39],
+			"faces": {
+				"north": {
+					"uv": [30, 49, 31, 50],
+					"texture": 0
+				},
+				"east": {
+					"uv": [20, 49, 30, 50],
+					"texture": 0
+				},
+				"south": {
+					"uv": [41, 49, 42, 50],
+					"texture": 0
+				},
+				"west": {
+					"uv": [31, 49, 41, 50],
+					"texture": 0
+				},
+				"up": {
+					"uv": [31, 49, 30, 39],
+					"texture": 0
+				},
+				"down": {
+					"uv": [32, 39, 31, 49],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "4725749b-3d49-bc33-41b3-01718cb83204"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [26.25, 60.8, -12.25],
+			"to": [45, 79.55, 40.25],
+			"autouv": 0,
+			"color": 6,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [88, 21],
+			"faces": {
+				"north": {
+					"uv": [102, 35, 107, 40],
+					"texture": 0
+				},
+				"east": {
+					"uv": [88, 35, 102, 40],
+					"texture": 0
+				},
+				"south": {
+					"uv": [121, 35, 126, 40],
+					"texture": 0
+				},
+				"west": {
+					"uv": [107, 35, 121, 40],
+					"texture": 0
+				},
+				"up": {
+					"uv": [107, 35, 102, 21],
+					"texture": 0
+				},
+				"down": {
+					"uv": [112, 21, 107, 35],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "a304cf4c-c29f-63e8-aa05-7c9ec895d7ec"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [22.5, 60.8, -19.75],
+			"to": [26.25, 68.3, 47.75],
+			"autouv": 0,
+			"color": 1,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [38, 32],
+			"faces": {
+				"north": {
+					"uv": [56, 50, 57, 52],
+					"texture": 0
+				},
+				"east": {
+					"uv": [38, 50, 56, 52],
+					"texture": 0
+				},
+				"south": {
+					"uv": [75, 50, 76, 52],
+					"texture": 0
+				},
+				"west": {
+					"uv": [57, 50, 75, 52],
+					"texture": 0
+				},
+				"up": {
+					"uv": [57, 50, 56, 32],
+					"texture": 0
+				},
+				"down": {
+					"uv": [58, 32, 57, 50],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "81510533-fa0b-7701-971a-270a2af54d7f"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-37.5, 57.05, 44],
+			"to": [22.5, 64.55, 47.75],
+			"autouv": 0,
+			"color": 1,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 52],
+			"faces": {
+				"north": {
+					"uv": [1, 53, 17, 55],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 53, 1, 55],
+					"texture": 0
+				},
+				"south": {
+					"uv": [18, 53, 34, 55],
+					"texture": 0
+				},
+				"west": {
+					"uv": [17, 53, 18, 55],
+					"texture": 0
+				},
+				"up": {
+					"uv": [17, 53, 1, 52],
+					"texture": 0
+				},
+				"down": {
+					"uv": [33, 52, 17, 53],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "910cddb7-a606-dadd-497e-2e231edb7071"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-37.5, 57.05, -19.75],
+			"to": [22.5, 64.55, -16],
+			"autouv": 0,
+			"color": 8,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [34, 52],
+			"faces": {
+				"north": {
+					"uv": [35, 53, 51, 55],
+					"texture": 0
+				},
+				"east": {
+					"uv": [34, 53, 35, 55],
+					"texture": 0
+				},
+				"south": {
+					"uv": [52, 53, 68, 55],
+					"texture": 0
+				},
+				"west": {
+					"uv": [51, 53, 52, 55],
+					"texture": 0
+				},
+				"up": {
+					"uv": [51, 53, 35, 52],
+					"texture": 0
+				},
+				"down": {
+					"uv": [67, 52, 51, 53],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "06a535e5-e8f9-453f-4af2-ec7f8cfac792"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-37.5, 64.55, 45.875],
+			"to": [22.5, 72.05, 45.875],
+			"autouv": 0,
+			"color": 2,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 58],
+			"faces": {
+				"north": {
+					"uv": [0, 58, 16, 60],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 58, 0, 60],
+					"texture": 0
+				},
+				"south": {
+					"uv": [16, 58, 32, 60],
+					"texture": 0
+				},
+				"west": {
+					"uv": [16, 58, 16, 60],
+					"texture": 0
+				},
+				"up": {
+					"uv": [16, 58, 0, 58],
+					"texture": 0
+				},
+				"down": {
+					"uv": [32, 58, 16, 58],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "4b399464-142a-d41f-5a4c-4856efff358e"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-37.5, 64.55, -17.875],
+			"to": [22.5, 72.05, -17.875],
+			"autouv": 0,
+			"color": 8,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [32, 58],
+			"faces": {
+				"north": {
+					"uv": [32, 58, 48, 60],
+					"texture": 0
+				},
+				"east": {
+					"uv": [32, 58, 32, 60],
+					"texture": 0
+				},
+				"south": {
+					"uv": [48, 58, 64, 60],
+					"texture": 0
+				},
+				"west": {
+					"uv": [48, 58, 48, 60],
+					"texture": 0
+				},
+				"up": {
+					"uv": [48, 58, 32, 58],
+					"texture": 0
+				},
+				"down": {
+					"uv": [64, 58, 48, 58],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "51324bc8-3396-66e9-d777-52fdf1b6c976"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-30, 49.55, -19.75],
+			"to": [15, 57.05, -16],
+			"autouv": 0,
+			"color": 5,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [26, 55],
+			"faces": {
+				"north": {
+					"uv": [27, 56, 39, 58],
+					"texture": 0
+				},
+				"east": {
+					"uv": [26, 56, 27, 58],
+					"texture": 0
+				},
+				"south": {
+					"uv": [40, 56, 52, 58],
+					"texture": 0
+				},
+				"west": {
+					"uv": [39, 56, 40, 58],
+					"texture": 0
+				},
+				"up": {
+					"uv": [39, 56, 27, 55],
+					"texture": 0
+				},
+				"down": {
+					"uv": [51, 55, 39, 56],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "d7281b09-eeb3-49fa-3456-747c5edd570c"
+		},
+		{
+			"name": "bison",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-30, 49.55, 44],
+			"to": [15, 57.05, 47.75],
+			"autouv": 0,
+			"color": 9,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 55],
+			"faces": {
+				"north": {
+					"uv": [1, 56, 13, 58],
+					"texture": 0
+				},
+				"east": {
+					"uv": [0, 56, 1, 58],
+					"texture": 0
+				},
+				"south": {
+					"uv": [14, 56, 26, 58],
+					"texture": 0
+				},
+				"west": {
+					"uv": [13, 56, 14, 58],
+					"texture": 0
+				},
+				"up": {
+					"uv": [13, 56, 1, 55],
+					"texture": 0
+				},
+				"down": {
+					"uv": [25, 55, 13, 56],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "a7c382d0-96e3-414e-f9e7-8c4fc1abac56"
+		},
+		{
+			"name": "head",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-79.025, 34.275, 39.975],
+			"to": [-67.225, 61.075, 51.775],
+			"autouv": 0,
+			"color": 3,
+			"inflate": 0.1,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [72, 6],
+			"faces": {
+				"north": {
+					"uv": [75, 9, 78, 16],
+					"texture": 0
+				},
+				"east": {
+					"uv": [72, 9, 75, 16],
+					"texture": 0
+				},
+				"south": {
+					"uv": [81, 9, 84, 16],
+					"texture": 0
+				},
+				"west": {
+					"uv": [78, 9, 81, 16],
+					"texture": 0
+				},
+				"up": {
+					"uv": [78, 9, 75, 6],
+					"texture": 0
+				},
+				"down": {
+					"uv": [81, 6, 78, 9],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "3bf22664-d173-a870-d98f-aad3cf104285"
+		},
+		{
+			"name": "head",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-79.025, 34.275, -23.775],
+			"to": [-67.225, 61.075, -11.975],
+			"autouv": 0,
+			"color": 0,
+			"inflate": 0.1,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [4, 6],
+			"faces": {
+				"north": {
+					"uv": [7, 9, 10, 16],
+					"texture": 0
+				},
+				"east": {
+					"uv": [4, 9, 7, 16],
+					"texture": 0
+				},
+				"south": {
+					"uv": [13, 9, 16, 16],
+					"texture": 0
+				},
+				"west": {
+					"uv": [10, 9, 13, 16],
+					"texture": 0
+				},
+				"up": {
+					"uv": [10, 9, 7, 6],
+					"texture": 0
+				},
+				"down": {
+					"uv": [13, 6, 10, 9],
+					"texture": 0
+				}
+			},
+			"type": "cube",
+			"uuid": "3e385af2-b6b5-acfa-d62e-5d0c3dcd7c32"
+		},
+		{
+			"name": "head_adult_horns",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-78.75, 34.55, -23.5],
+			"to": [-67.5, 60.8, -12.25],
+			"autouv": 0,
+			"color": 5,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [0, 35],
+			"faces": {
+				"north": {
+					"uv": [3, 38, 6, 45],
+					"texture": 18
+				},
+				"east": {
+					"uv": [0, 38, 3, 45],
+					"texture": 18
+				},
+				"south": {
+					"uv": [9, 38, 12, 45],
+					"texture": 18
+				},
+				"west": {
+					"uv": [6, 38, 9, 45],
+					"texture": 18
+				},
+				"up": {
+					"uv": [6, 38, 3, 35],
+					"texture": 18
+				},
+				"down": {
+					"uv": [9, 35, 6, 38],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "005b123d-f2c3-4df4-cead-a37b823c0759"
+		},
+		{
+			"name": "head_adult_horns",
+			"box_uv": false,
+			"rescale": false,
+			"locked": false,
+			"light_emission": 0,
+			"render_order": "default",
+			"allow_mirror_modeling": true,
+			"from": [-78.75, 34.55, 40.25],
+			"to": [-67.5, 60.8, 51.5],
+			"autouv": 0,
+			"color": 2,
+			"origin": [0, -0.2, 14],
+			"uv_offset": [42, 35],
+			"faces": {
+				"north": {
+					"uv": [45, 38, 48, 45],
+					"texture": 18
+				},
+				"east": {
+					"uv": [42, 38, 45, 45],
+					"texture": 18
+				},
+				"south": {
+					"uv": [51, 38, 54, 45],
+					"texture": 18
+				},
+				"west": {
+					"uv": [48, 38, 51, 45],
+					"texture": 18
+				},
+				"up": {
+					"uv": [48, 38, 45, 35],
+					"texture": 18
+				},
+				"down": {
+					"uv": [51, 35, 48, 38],
+					"texture": 18
+				}
+			},
+			"type": "cube",
+			"uuid": "56639aae-0de2-9999-d792-e779548bd251"
+		}
+	],
+	"outliner": [
+		{
+			"name": "body",
+			"origin": [0, 29.8, 14],
+			"color": 0,
+			"onSummonFunction": "",
+			"configs": {
+				"default": {},
+				"variants": {}
+			},
+			"uuid": "a254b749-3628-6c4c-0a92-71dc85b24816",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"selected": false,
+			"children": [
+				{
+					"name": "bison",
+					"origin": [0, 29.8, 14],
+					"rotation": [0, -90, 0],
+					"color": 0,
+					"onSummonFunction": "",
+					"configs": {
+						"default": {},
+						"variants": {}
+					},
+					"uuid": "a95b1882-fce3-4d59-1c7f-e66c5a05ef86",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"selected": false,
+					"children": [
+						{
+							"name": "bisonrot",
+							"origin": [0, 29.8, 14],
+							"color": 0,
+							"onSummonFunction": "",
+							"configs": {
+								"default": {},
+								"variants": {}
+							},
+							"uuid": "44dac89a-8f9e-edac-4436-b3caea136f5c",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": [
+								"b7cd593a-33cf-467f-a0b0-f923696a3268",
+								{
+									"name": "head",
+									"origin": [-48.75, 22.3, 14],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "0dec298a-f13b-f441-d7d1-2c7469a930d2",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": true,
+									"children": [
+										"07bd2bc7-7de9-50cd-a134-071e8715fe49",
+										"ba24600c-a3c1-eea8-734b-bb2d5c998742",
+										{
+											"name": "head_adult_horns",
+											"origin": [0, -0.2, 14],
+											"color": 0,
+											"onSummonFunction": "",
+											"configs": {
+												"default": {},
+												"variants": {}
+											},
+											"uuid": "b38444fe-b072-ec26-ffdc-54902c79b557",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": ["56639aae-0de2-9999-d792-e779548bd251", "005b123d-f2c3-4df4-cead-a37b823c0759"]
+										},
+										{
+											"name": "head_child_horns",
+											"origin": [0, -0.2, 14],
+											"color": 0,
+											"onSummonFunction": "",
+											"configs": {
+												"default": {},
+												"variants": {}
+											},
+											"uuid": "9d344b6d-235f-e04f-2740-1a2c5cb6533a",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": ["03db335a-ff98-013e-8ffc-34b0fb1b34b5", "6d603580-4fec-dd9e-4e56-0bf10e28ddc7"]
+										}
+									]
+								},
+								{
+									"name": "leg6",
+									"origin": [-31.875, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "6e14fd32-8b07-b99c-ed35-5a23c970abf2",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["1748c99e-bbb9-0b56-872d-e81b781ecd20"]
+								},
+								{
+									"name": "leg3",
+									"origin": [-31.875, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "0bd6a99e-b1d0-08a3-3d5b-5601a00a3ab0",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["5834a040-6c2a-4dcc-99a6-14ed9c0d8f62"]
+								},
+								{
+									"name": "leg5",
+									"origin": [3.75, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "94756fd1-8cf3-320a-53ff-61b96652548e",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["f54eb947-a1df-948d-1361-e7c210e6b7de"]
+								},
+								{
+									"name": "leg2",
+									"origin": [3.75, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "2090fe52-4e8f-26bd-4b40-7a7f48d17edf",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["530d8fab-fa18-bd6c-3a2d-80d27c001efe"]
+								},
+								{
+									"name": "leg4",
+									"origin": [39.375, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "abaf17cc-226b-39d1-45b8-1e5dbd77cd0b",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["46e2c330-771f-e495-795c-84a11fc63d34"]
+								},
+								{
+									"name": "leg1",
+									"origin": [39.375, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "e7671e43-5bc3-353a-8515-13c7462c4815",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["952647a4-af31-5d41-2df1-d317ef2b1d20"]
+								},
+								{
+									"name": "tail",
+									"origin": [56.25, 59.8, 14],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "b86fc56f-949a-678a-8710-dabc7e798d46",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": [
+										"5ef1633a-40d7-d460-cf5e-3771b622ff95",
+										{
+											"name": "tail2",
+											"origin": [105, 37.3, 14],
+											"color": 0,
+											"onSummonFunction": "",
+											"configs": {
+												"default": {},
+												"variants": {}
+											},
+											"uuid": "78318f07-a65c-b1f5-6314-b27175ebd560",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": ["b25b07ab-12cc-a0a2-abc5-03378b646063"]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "harness",
+					"origin": [0, -0.2, 14],
+					"color": 0,
+					"onSummonFunction": "",
+					"configs": {
+						"default": {},
+						"variants": {}
+					},
+					"uuid": "55be6b35-e524-45bf-a3f2-29d3a6235aef",
+					"export": true,
+					"mirror_uv": false,
+					"isOpen": true,
+					"locked": false,
+					"visibility": true,
+					"autouv": 0,
+					"selected": false,
+					"children": [
+						{
+							"name": "bison1",
+							"origin": [0, 29.8, 14],
+							"rotation": [0, -90, 0],
+							"color": 0,
+							"onSummonFunction": "",
+							"configs": {
+								"default": {},
+								"variants": {}
+							},
+							"uuid": "03b852cf-3f89-6d93-9517-7da834bf7459",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": [
+								"bec2111a-f2d7-7145-2ada-07f7b625887c",
+								"aa35a4ca-68f4-afd2-84b3-22db3fdd28b9",
+								"cd18b9c4-9df5-29bd-b45c-bd0868e07752",
+								"4725749b-3d49-bc33-41b3-01718cb83204",
+								"a304cf4c-c29f-63e8-aa05-7c9ec895d7ec",
+								"81510533-fa0b-7701-971a-270a2af54d7f",
+								"910cddb7-a606-dadd-497e-2e231edb7071",
+								"06a535e5-e8f9-453f-4af2-ec7f8cfac792",
+								"4b399464-142a-d41f-5a4c-4856efff358e",
+								"51324bc8-3396-66e9-d777-52fdf1b6c976",
+								"d7281b09-eeb3-49fa-3456-747c5edd570c",
+								"a7c382d0-96e3-414e-f9e7-8c4fc1abac56",
+								{
+									"name": "right_reign",
+									"origin": [-35.625, 46.675, 8.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "328ba22e-1080-866a-9cb6-24a527502a84",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "left_reign",
+									"origin": [-35.625, 46.675, 19.625],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "b52b04c5-b767-8711-0017-7058b2145a8f",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "tail1",
+									"origin": [56.25, 59.8, 14],
+									"rotation": [0, 0, -32],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "c8fa442e-5528-af6e-113a-62fa30e29c86",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": [
+										{
+											"name": "tail3",
+											"origin": [116.25, 29.8, 14],
+											"rotation": [0, 0, 32],
+											"color": 0,
+											"onSummonFunction": "",
+											"configs": {
+												"default": {},
+												"variants": {}
+											},
+											"uuid": "35d217ab-2e46-90c7-a247-1c0d613eef3c",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": false,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "leg7",
+									"origin": [39.375, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "eea1c8eb-641d-19ec-4a4f-f5169a7dd1ef",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "leg8",
+									"origin": [39.375, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "58161769-0ada-2ac1-6984-516e4c1d2e07",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "leg9",
+									"origin": [3.75, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "f06ac944-334a-7e38-2ed8-1a41985d8a38",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "leg10",
+									"origin": [3.75, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "b6c1e4d0-65a9-c1ec-512f-d4f74c3e8c98",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "leg11",
+									"origin": [-31.875, 26.05, -10.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "b26c994c-598c-7190-2fa2-c33f9c3ddafd",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "leg12",
+									"origin": [-31.875, 26.05, 38.375],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "5847c33e-96a3-1099-b98f-6767ff8b850b",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": false,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
+								{
+									"name": "head1",
+									"origin": [-48.75, 22.3, 14],
+									"color": 0,
+									"onSummonFunction": "",
+									"configs": {
+										"default": {},
+										"variants": {}
+									},
+									"uuid": "666cb1ce-462d-565e-a5f9-96bd8b2fabdc",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": ["3bf22664-d173-a870-d98f-aad3cf104285", "3e385af2-b6b5-acfa-d62e-5d0c3dcd7c32"]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"textures": [
+		{
+			"path": "\\\\server\\Media\\blank_harness.png",
+			"name": "blank_harness.png",
+			"folder": "block",
+			"namespace": "",
+			"id": "2",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": false,
+			"uuid": "153a2fb8-84d9-ec6d-24f0-f3cfc01346c5",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAdFJREFUeF7t1AENAAAMg7DPv+kLKXMAIds12sBo+uCvAPAICqAAcAM4fg9QALgBHL8HKADcAI7fAxQAbgDH7wEKADeA4/cABYAbwPF7gALADeD4PUAB4AZw/B6gAHADOH4PUAC4ARy/BygA3ACO3wMUAG4Ax+8BCgA3gOP3AAWAG8Dxe4ACwA3g+D1AAeAGcPweoABwAzh+D1AAuAEcvwcoANwAjt8DFABuAMfvAQoAN4Dj9wAFgBvA8XuAAsAN4Pg9QAHgBnD8HqAAcAM4fg9QALgBHL8HKADcAI7fAxQAbgDH7wEKADeA4/cABYAbwPF7gALADeD4PUAB4AZw/B6gAHADOH4PUAC4ARy/BygA3ACO3wMUAG4Ax+8BCgA3gOP3AAWAG8Dxe4ACwA3g+D1AAeAGcPweoABwAzh+D1AAuAEcvwcoANwAjt8DFABuAMfvAQoAN4Dj9wAFgBvA8XuAAsAN4Pg9QAHgBnD8HqAAcAM4fg9QALgBHL8HKADcAI7fAxQAbgDH7wEKADeA4/cABYAbwPF7gALADeD4PUAB4AZw/B6gAHADOH4PUAC4ARy/BygA3ACO3wMUAG4Ax+8BCgA3gOP3AAWAG8DxewA8gAekjwCBZtfVOwAAAABJRU5ErkJggg==",
+			"relative_path": "//server/Media/blank_harness.png"
+		},
+		{
+			"path": "/home/lukas/Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/red_harness2.png",
+			"name": "red_harness.png",
+			"folder": "",
+			"namespace": "",
+			"id": "1",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": false,
+			"uuid": "2e33538a-52d2-c096-7ba6-3d34ef8a898e",
+			"source": "data:image/png;base64,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",
+			"relative_path": "../../../../../../../../../../home/lukas/Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/red_harness2.png"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\black_harness2.png",
+			"name": "black_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "3",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "75fdebb9-c0aa-4c67-5023-a1320d3da2b8",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/black_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\blue_harness2.png",
+			"name": "blue_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "4",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "1db1b202-4301-ba8a-91f6-772daff378a6",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/blue_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\brown_harness2.png",
+			"name": "brown_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "5",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "29e1ee23-278c-dba1-aebe-b526c7383472",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/brown_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\cyan_harness2.png",
+			"name": "cyan_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "6",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "50886969-22b2-f9cf-b054-51d63d544a4b",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/cyan_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\gray_harness2.png",
+			"name": "gray_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "7",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "dde77eaf-e97a-8c48-350c-b952179ea605",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/gray_harness2.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAB/VJREFUeF7tnU9oHGUYxmcltmu6qVYNskiJWGIEC62CFg9SpOYkvcSDHqI3L14Ezz32LHjx4k0vejCX4ikWKR6kerCFCNZSMVRdJGhtk65pDa68k77Lt7Mzmfl2Zp55Z/eZy6bfv/f9nvc337+Z7jYCwPX6C3M9NfPIgX3Bn7fvBvLpXpomn9Hrs2/XGwA3J9IERFgBYK7dCtY7W4F+Pv3EQ33B/7mz08+TRC2nfxOA8tiEAvDA/qmwJxsb3WB2dnqgV5omMOglIMhFAMYAAOmC3vU//vJ3/2/tWhQKBUEgIABjAMBewZfuxUGhUwMBGCMA4oZ/7V4UAgJQXuC1Zcga4J2X53sy50/vnwrWf701NP8nTQO6Xvjwq6sQP8uX254FiLAKgNzhjx1sBoceboZK3PhrO/zUf7ujg44GkkYAygMHBoDs759beDT4rbPVD7h2S0AQCPTTnRLkvIAAjAEAOgUIAI+3W2GPus6WT0cEHQ3caYEAAAF47djh/qldFrOfX76eOorIQZDsAmQN4AKg7SsIOgJIOU2regooQ48suqLKDAXv9DPt3rkfOo1TR2ZDEM5f22hImvwdly5pac4qAHqX6wjg1ksaGWQtUOU2UHRI08DVRsqm6WEpP9ZZhSDqaFJ6Wof0WYCeBcidHoVAAXCnBSvbwKL1SNMLmT8EQBnE67OALEfBbufl7peryhGgjBERGeA0W0MAlDHnpT0MEid12xf3YKhKAMrQIy0oyHzIfMXHwciQ+tmCAODnEksjFSAASLUN2iIABoOCdIkAINU2aIsAGAwK0iUCgFTbw9bS0lJ4+jo9vfvqXLfbja29srKSK4a5Knv0h0U9FVhcXOzNzMyEACQFX5okAJ7C1qW4AqD+bm5uhn8KFO5FAOoSUU8/5Uh+ujkV7JuaCu7u7ATd7d23paNpeR8+cQrwDAyqOEcAlNJG7biLQFkDcAowGqiy3BIA0nYAXASWpb6BdrkNNBCEKl2I2wbKNMBdQJVRAdrmIhAotkVTtdsGnjy6+zbxhbX0t4SRglv1K02D2o0Ap0/M927d3jYHgFW/sgJQm6Ngq0IvLy/3rl+6YA7MNABqtwuwKnTVYGogZQX/38+XgvuePD50pu/m6So/uuLXf+uBUJa29NlBXFurq6vhKXBhR8FVC510R1Xtl9wY+jTv3yvfBPcvvNh31T3ocfN02JfAbW3tfktKu90e6GK0LTczLq/T6YRFWq1WuJXUh0gEIG0szpkvAEgTAkHj2ndB78jz/Wf8mh7eiZE8Pf4VADRoritaPs69uDyFiQDkDKhvdZ0CpF7SXSvBaf6+NjA6SHkd7nUozwuA1i9lBHjr1NHe+h83My+2ZGgWh85dLPfLH6qeAgSA6LztzvMalOicnrQG0PI+IwBkDeALgJS/sXVn7AHwHTHQ5QtbA/gCIHPjzasXCQA64hF7iQD4DtG+AHAEqDjy98wnAuAbIN+51rf9UeXy9WtUO3WtRwDqGrmC/CYABQlZ12YKA8D3KJiLQBvIFLYI9J1rUWsAXzBthAXnRUMCd6i1f8Ci7M8lTT/dTE37+PzaADy+APjuMkaVxNevUe3UtV4IQJLz8nw/7jp4oDm0f9cXLyTP54rCF60rwOU5MazrCyE+GuYpuycA0rAGSAORBRZfCLTNOODctpKA1PpJZaP+pEGn7UX7bPGFlzzBl7qpAGQ1kBacrO2UUU4AUP984XTrjSUAIrhMA8eemgu1bzYH1wPb27tDcFL65Z/Wc4ur7xFW4YcLrrX3Gcu4GaJthiOAS7mCkGb86++v9IvIXfXg/IlAzvbjQIqDSNMEIK1bRBval5eeXUjrwkC+gjxpEDR0keSl1h6FdYhNA0kEl2uveT9PG6P2Z+IA0CnARzDf+d4d4hF2fGxMetlcI8Dh4yfDYV8vHcLdf8sbudFr1HpZgjVpd3AWTfYqkwuAvMbLqE8A/FQt7IWQD957IzxQct9jO/PRF2H7kuemS5rmqbtn33514EBKXpt69/1Pw/punr5OpXl+3WXpqAK5ATjz5ith4HSbKIGNBlONap7uAKLOSBtZ6ks9bePsJ1/m7sMkY0HxJjn6Rf7HkAnXsbbd5whQ29AV43gfAPllDPkqsrxfO1aMW2wFpUAIgP5MjPw96u8CoRymnWIVCH8RLPrLXy4QxZpja9YUiF0DcBSwFqby/ElcBOp31GT5XcDy3GPLZSuQugtQELhALDsU1bSfCkA1btEqSgECgFLaqB0CYDQwKLcIAEppo3YIgNHAoNwiACiljdohAEYDg3KLAKCUNmqHABgNDMotAoBS2qgdAmA0MCi3CABKaaN2CIDRwKDcIgAopY3aIQBGA4NyiwCglDZqhwAYDQzKLQKAUtqoHQJgNDAotwgASmmjdgiA0cCg3CIAKKWN2iEARgODcosAoJQ2aocAGA0Myi0CgFLaqB0CYDQwKLcIAEppo3YIgNHAoNwiACiljdohAEYDg3KLAKCUNmqHABgNDMotAoBS2qgdAmA0MCi3CABKaaN2CIDRwKDcIgAopY3aIQBGA4NyiwCglDZqhwAYDQzKLQKAUtqoHQJgNDAotwgASmmjdgiA0cCg3CIAKKWN2iEARgODcosAoJQ2aocAGA0Myi0CgFLaqB0CYDQwKLcIAEppo3YIgNHAoNwiACiljdohAEYDg3KLAKCUNmqHABgNDMotAoBS2qgdAmA0MCi3/gc7/xjMwb5KVAAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\green_harness2.png",
+			"name": "green_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "8",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "63c208ac-dacc-5170-820c-3b4e5de77d2a",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/green_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\light_blue_harness2.png",
+			"name": "light_blue_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "9",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "4599c7ff-9e02-4e32-74fc-92cf938baf61",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/light_blue_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\light_gray_harness2.png",
+			"name": "light_gray_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "10",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "ba6ccd88-386a-8636-07ec-970cf178c0a5",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/light_gray_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\lime_harness2.png",
+			"name": "lime_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "11",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "c59075ed-0cf7-7c00-f14c-2b18528919b3",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/lime_harness2.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAB/xJREFUeF7tnU1oHGUYx2chJusmqW1tKrFIRKktWCkK2pNIqReRHsSDXvQmgh6EnnPoIeeABwviTS96EA/Fm6WIeKgepFChKopBa9Bov5JstzWw5Znts7w7mcnMuzPzn2d2/3PZ9P16nvf//Ob9muluIwBcrz230FUzD05PBv9t3gnk0700TT6j12ffrTQAbo6lCYiwAsDC/EywsroR6OfhR3f3Bb91e6ufJ4laTv8mAOWxCQXg/qmJsCdra+1gbq410CtNExj0EhDkIgAjAIB0Qe/6y79f7/+tXYtCoSAIBARgBADYKfjSvTgodGogACMEQNzwr92LQkAAygu8tgxZA7xz/GBX5vzW1ESw8ufNbfN/0jSg64Uz53+B+Fm+3PYsQIRVAOQOf2hXM9iztxkqce1qJ/zUf7ujg44GkkYAygMHBoDs7585tC+4srrRD7h2S0AQCPTTnRLkvIAAjAAAOgUIAAfmZ8IetZ0tn44IOhq40wIBAALw6tFH+qd2Wcx+fvGP1FFEDoJkFyBrABcAbV9B0BFAymla1VNAGXpk0RVVZlvwTj453z3742rjxONzIQjnfl1rSJr8HZcuaWnOKgB6l+sI4NZLGhlkLVDlNlB0SNPA1UbKpulhKT/WWYUg6mhSelqH9FmAngXInR6FQAFwpwUr28Ci9UjTC5m/DYAyiNdnAVmOgt3Oy90vV5UjQBkjIjLAaba2AVDGnJf2MEic1G1f3IOhKgEoQ4+0oCDzIfMVHwcjQ+pnCwKAn0ssjVSAACDVNmiLABgMCtIlAoBU26AtAmAwKEiXCABSbQ9bx784HJ6+NvffF9bq/PN/bO3zr1zOFcNclT36w6KeChz74LFu6+HJEICk4EuTBMBT2LoUVwDU3/ZfvdflBQr3IgB1iainn3Ik32pOBJMTE8Gdra2g3em9LR1Ny/vwiVOAZ2BQxTkCoJQ2asddBMoagFOA0UCV5ZYAkLYD4CKwLPUNtMttoIEgVOlC3DZQpgHuAqqMCtA2F4FAsS2aqt028IUjvbeJv76U/pYwUnCrfqVpULsR4OSxg92bmx1zAFj1KysAtTkKtir0S98+1W2/fd0cmGkA1G4XYFXoqsHUQMoKfmZ5Pdg4NbvtTN/N01V+dMWv/9YDoSxt6bODuLYuvPtbeApc2FFw1UIn3VFV+yU3hj7Nm1m8EWwsPdB31T3ocfN02JfAta/0HgLte7b33+n0iraVlvfv971vW2kdmAy3kvoQiQCkjcU58wUAaUIg2Ht6M7h6err/jF/T5TOap8e/AoAGzXVFy8e5F5enMBGAnAH1ra5TgNRLumslOPvP3BoYHaS8Dvc6lOcFQOuXMgK8eeJId+XvG5kXWzI0i0NnL5T75Q9VTwECQHTeduf5/pAeWR8krQG0vM8IAFkD+AIg5a9t3B55AHxHDHT5wtYAvgDI3DhxqkMA0BGP2EsEwHeI9gWAI0DFkb9nPhEA3wD5zrW+7Q8rl69fw9qpaz0CUNfIFeQ3AShIyLo2UxgAvkfBXATaQKawRaDvXItaA/iCaSMsOC8aErg9M1MDFmV/Lmn66WZq2sfnLg3A4wuA7y5jWEl8/RrWTl3rhQAkOS/P9+OuXdPNbft3ffFC8nyuKHzRugJcnhPDur4Q4qNhnrI7AiANa4A0EFlg8YVA24wDzm0rCUitn1Q26k8adNpetM8WX3jJE3ypmwpAVgNpwcnaThnlBAD1zxdOt95IAiCCyzRw9ImFUPtmc3A90On0huCk9Is/r+QWV98jrMIPF1xr7zOWcTNE2wxHAJdyBSHN+Dc//NQvInfV1nIzkLP9OJDiINI0AUjrFtGG9uX5pw+ldWEgX0EeNwgaukjyUmuHwjrEpoEkgsu107yfp41h+zN2AOgU4COY73zvDvEIOz42xr1srhGg9eHucNjXS4dw99/yRm70GrZelmCN2x2cRZOdyuQCIK/xMuoTAD9VC3sh5P1Tr4cHSuvr630PFj/6Mmxf8tx0SdM8Lbz01ssDB1Kzs7PBe8ufhvXdPEmXS/P8usvSUQVyA7D4xou9b7O6t32UwEaDqUY1T3cAUWekjSz1pZ62sfTJV7n7MM5YULxxjn6R/zFkzHWsbfc5AtQ2dMU43gdAfhlDvoos79eOFeMWW0EpEAKgPxMjfw/7u0Aoh2mnWAXCXwSL/vKXC0Sx5tiaNQVi1wAcBayFqTx/EheB+h01WX4XsDz32HLZCqTuAhQELhDLDkU17acCUI1btIpSgACglDZqhwAYDQzKLQKAUtqoHQJgNDAotwgASmmjdgiA0cCg3CIAKKWN2iEARgODcosAoJQ2aocAGA0Myi0CgFLaqB0CYDQwKLcIAEppo3YIgNHAoNwiACiljdohAEYDg3KLAKCUNmqHABgNDMotAoBS2qgdAmA0MCi3CABKaaN2CIDRwKDcIgAopY3aIQBGA4NyiwCglDZqhwAYDQzKLQKAUtqoHQJgNDAotwgASmmjdgiA0cCg3CIAKKWN2iEARgODcosAoJQ2aocAGA0Myi0CgFLaqB0CYDQwKLcIAEppo3YIgNHAoNwiACiljdohAEYDg3KLAKCUNmqHABgNDMotAoBS2qgdAmA0MCi3CABKaaN2CIDRwKDcIgAopY3aIQBGA4NyiwCglDZqhwAYDQzKLQKAUtqoHQJgNDAotwgASmmjdgiA0cCg3CIAKKWN2iEARgODcosAoJQ2aocAGA0Myq27ppYXzNiRz/8AAAAASUVORK5CYII="
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\magenta_harness2.png",
+			"name": "magenta_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "12",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "0fd8e42d-dc2b-7c52-9939-8f4af563e4ab",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/magenta_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\orange_harness2.png",
+			"name": "orange_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "13",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "0ed3847e-a3da-f8c1-d605-1a9a45ac344e",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/orange_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\pink_harness2.png",
+			"name": "pink_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "14",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "eb97a02d-6742-b24d-a2a8-369706062183",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/pink_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\purple_harness2.png",
+			"name": "purple_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "15",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "2803e1e7-49bd-e2e4-7223-39ca8d001f86",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/purple_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\white_harness2.png",
+			"name": "white_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "16",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "348f7509-3a77-5480-a25f-4cfb916595e4",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/white_harness2.png",
+			"source": "data:image/png;base64,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"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\random\\entity\\equipment\\happy_ghast_body\\yellow_harness2.png",
+			"name": "yellow_harness2.png",
+			"folder": "",
+			"namespace": "",
+			"id": "17",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "596e2279-4e12-fdab-1606-d607798beca5",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/random/entity/equipment/happy_ghast_body/yellow_harness2.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAB/JJREFUeF7tnU1oHVUUx+dBaGKaFKsGiSVEkFjBQlH8WKlI3UlXWSiC7gQJiCK4EErFUnAhiCKEghtREF1kVdxZxLryA6RQQS2CjxiDBK02aU1L4MmZ53ncdzOTmftm5j9n3vvP5r3er3Pu//zmfs00rxUBrqcemu+omVv374v+vHojkk/30jT59K9Pv2m3AG6OpAmIsALA/OxU1F7fivTznjtv7gn+7/WdXp4kajn9TgCqYxMKwE3jY3FPNjauRTMzk3290jSBQS8BQS4CMAQASBf0rv/x179737VrPhQKgkBAAIYAgL2CL91LgkKnBgIwRAAkDf/aPR8CAlBd4LVlyBpg6fGFjsz5k+NjUfu3K7vm/7RpQNcLy19cgvhZvdz2LECEVQDkDr/9wER08JaJWInLf23Hn/pvd3TQ0UDSCEB14MAAkP39/Ydvi9bWt3oB124JCAKBfrpTgpwXEIAhAECnAAHg0OxU3KNrzpZPRwQdDdxpgQAAAVg8Otc7tctjduXCauYoIgdBsguQNYALgLavIOgIIOU0re4poAo98uiKKrMreMfvne2c/WG9deyumRiEc79stCRNvielS1qWswqA3uU6Arj10kYGWQvUuQ0UHbI0cLWRsll6WMpPdFYh8B1NS8/qkD4L0LMAudN9CBQAd1qwsg0sW48svZD5uwCognh9FpDnKNjtvNz9ctU5AlQxIiIDnGVrFwBVzHlZD4PESd32JT0YqhOAKvTICgoyHzJf8XEwMqRhtiAAhLnE0kgFCABSbYO2CIDBoCBdIgBItQ3aIgAGg4J0iQAg1Q6w9d1KFJ++zs50K61vJFd+YDEqFMNClQP6w6KBCqy8F3Xm7+gCkBZ8aZIABArblOIKgPrb/r37TaBwLwLQlIgG+ilH8pMTY9G+sbHoxs5OdG27+7a0n1b04ROngMDAoIpzBEApbdSOuwiUNQCnAKOBqsotASBrB8BFYFXqG2iX20ADQajThaRtoEwD3AXUGRWgbS4CgWJbNNW4beBjR7pvE395MfstYaTgVv3K0qBxI8Dxhxc6V65umwPAql95AWjMUbBVodfOR51nlubMgZkFQON2AVaFrhtMDaSs4JffmYmWXu4+1nNX826epvsrfv23HgjlaUvtJLW1+GL3KWJpR8F1C512R9Xtl9wY+jTvjZOz0eun1nuuugc9bp4O+xK49lq3+KMP9vfQb8vNTco7/223xPyhLnz6EIkAZI3FBfMFAGlCIHjz1Fz02snV3jN+TZdPP0+PfwUADZrripZPci8pT2EiAAUDGlpdpwCpl3bXSnA+ONM/Okh5He79KcMFJgQALVvJCPDcsSOd9h//5F5sydAsDp39uto//lD3FCAA+PO2O89rUPw5PW0NoOVDRgDIGiAUACl/eev60AMQOmKgy5e2BggFQObGF15dIADoiHv2UgEIHaJDAeAIUHPk/zefCkBogELn2tD2B5Ur1K9B7TS1HgFoauRK8psAlCRkU5spDYDQo2AuAm0gU9oiMHSuRa0BQsG0ERacFy0J3MGp8T6Lsj+XNP10MzXtw3MX++AJBSB0lzGoJKF+DWqnqfViANKcl+f7SdeB/RO79u/64oXkhVw+fH5dAa7IiWFTXwgJ0bBI2T0BkIY1QBqIPLCEQqBtJgHntpUGpNZPK+v7kwWdtuf32eILL0WCL3UzAchrICs4edupopwAoP6FwunWG0oARHCZBo7ePR9rPzHRvx7Y3u4OwWnpF35uFxZX3yOsww8XXGvvM1ZxM/htxiOAS7mCkGX8q+9/6hWRu+rMW5ciOdtPAikJIk0TgLRuGW1oXx6573BWF/ryFeRRg6Cli6QgtfYorENsFkgiuFx7zftF2hi0PyMHgE4BIYKFzvfuEI+wE2Jj1MsWGgE+Xl6Nh329dAh3/y1v5PrXoPXyBGvU7uA8muxVphAARY1XUZ8AhKla2gsh777ydHygtLm52fPgxPufxe1LnpsuaZqnhU8//2TfgdT09HT00tufxPXdPEmXS/PCusvSvgKFATjx7BNx4HSbKIH1g6lGNU93AL4z0kae+lJP2zj90eeF+zDKWFC8UY5+mf8xZMR1bGz3OQI0NnTlON4DQH4ZQ/4UWdE/O1aOW2wFpUAMgP5MjHwf9HeBUA7TTrkKxL8I5v/ylwtEuebYmjUFEtcAHAWshak6f1IXgfo3avL8LmB17rHlqhXI3AUoCFwgVh2KetrPBKAet2gVpQABQClt1A4BMBoYlFsEAKW0UTsEwGhgUG4RAJTSRu0QAKOBQblFAFBKG7VDAIwGBuUWAUApbdQOATAaGJRbBACltFE7BMBoYFBuEQCU0kbtEACjgUG5RQBQShu1QwCMBgblFgFAKW3UDgEwGhiUWwQApbRROwTAaGBQbhEAlNJG7RAAo4FBuUUAUEobtUMAjAYG5RYBQClt1A4BMBoYlFsEAKW0UTsEwGhgUG4RAJTSRu0QAKOBQblFAFBKG7VDAIwGBuUWAUApbdQOATAaGJRbBACltFE7BMBoYFBuEQCU0kbtEACjgUG5RQBQShu1QwCMBgblFgFAKW3UDgEwGhiUWwQApbRROwTAaGBQbhEAlNJG7RAAo4FBuUUAUEobtUMAjAYG5RYBQClt1A4BMBoYlFsEAKW0UTsEwGhgUG4RAJTSRu0QAKOBQblFAFBKG7VDAIwGBuUWAUApbdQOATAaGJRb/wGz8ta96n3NgQAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "",
+			"name": "sky_bison_baby.png",
+			"folder": "",
+			"namespace": "",
+			"id": "0",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 16,
+			"uv_height": 16,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": false,
+			"uuid": "dfee9a80-295f-11e9-d25c-fa9cf224cd1e",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAD+ZJREFUeF7tXV+oZlUVP7eG6c40kzPjOEgPIWGaRBCBMVphA0VUOGVCVJIPSvOSpVSTUDCRUKRTYmovkj4Y/SEwmxELKZjE0qGBwQgxzQfpIWTUmUmnudebMbHOzO+b9a271v57znfPPnefl3u/c9b+t9Zvr7323mvtPddkPld9+NJTJxcWm18++MBUTp+96upm/br59p32nd6DxvquVe3TV3+pfb24uKDWfH5+3eQ90cjf9FF799uH71Pz27ztorlMFg06eXbjQgBAHLjv5z9bxojrPn+NEyAuAOCbFDJPEwoAAgQAJYFQAeDBLwFAEzAXLmkCAOCloy83W7ec2+YKGqTn36xioQE0AKxfv/40oE6enGgJSwMQLdFZIAEQKgA8APjo+999igTM1TgJ8hs3fKV9J4cBCJmrfwCEA0ADA73b9cU9DYSHoQBCtgDAhY0hwAIAH14IBBUAEQC4+9572t7NAUDJARD6Tg/RSA1BYOHpQUd58f85AKC2NQDwbz4AaKCgdxUAAeYLNACR3nb3nW2KG67fNRE6AMC/SxoJEFexN934/Ymal0JGOqh2KViuMXyggF3wxKE/ZdtJAWxcMZLsxhEAuJB5S6hXcw2g0XEa+i7TABz4u2bD26cAIHt/m4cY2/nQgDFfG0bksEC0FQABQ0AMfCHI1DRdAkCCpQIgRipnaKEBZFIp6FjBW/RdAkDOFioAMgAAa98aAqDeOR3UPR8aYocAPs5XGyBegJ3YABCqNAKl0PE9xwic1SygGoGBYOLrAHIayAGAaR6962oayK36VosYC0EhFj/S8xlEnQYGgMC1ECSHA9ov6GIhiOfLV/K6WAkEqOhvBUAAAHKXgrFaSEvFuUvBsroxewFIK/cE6kqgBwQWAPhuIGVRN4MCetMKkGQbgSG7gXU7eAUkG1jkHAlQ650h6V3buX35A2j1oqGDlp/5A4M0pB0ajc9Xwdc+fH/wD4eyO1lqG0LSmQB4+rlnptJfcuHFy/Lz7eeHMjHGIURWAptFcvcRU05sPYcwg9Pk1r04AEiB+xhGgMgFAKXPET6vI/Jqp3PM/8DXDtd3CFHTkKEAKUID7L5lTxKf9u65xSlAYpJPIEQj3clSKoOykLarPF35oEyLhr4/8ue/DXsIePzxh9rdvNTnO7u/OdnHl3mE9PCuAGB5IKW2i9L56ub6Drtk1QCAGKaNtxqTXPN9yxPIN5bHaoDYcjR6CwCwS8gwHT0Aztuyte1kloCoZ8oxlHv5UFrLFQzvQxaIoG2ke5qlAbS8XfVwtVErA218xzsvG/cQQI0nEMAVDEBw9TAwB0zlwgAzkR9nrksLcA3gMwJ5+bwOsmxZB9lG0GvAoXcvHn2pufzyK4cPgK/deOuUr3zIuElLpj/80c0TUmgCTaiaMEPK0GhcmoZvJVtrG1L4OfWQWoTnTcKnpzgAWAEXYBRcsDgAuPBTGRqazmcL+PLpCgC+cuh7URpACthqIAeIpQFCmJNKUwoAitUAJBhsq0ohwYWK3ruGAJdwiTGhGsOiTQWB1vu7qI/W3mIAcNmlHzjFo2dieqYGAjRcEzL/Jv/n9BCKlhe905alQ+pNq52yHBixEghaHWLbVoQNIAEQagNoWkAKgZgtGekSFOi5UKSAugCAT7gQdEhdeZ01+sEbgQQAreJaTJ3FEG4LhPTE1UJDs6uhxxXM7fjgR7KWgn2agJgQ86w0mLqqL6bWBx77/bDXAWKEw2mPHXk2GjihO46/+sWBSVF33HV7LwwE8F848q+2rKefeaotJ6VdJbuNJTM3hVGhAID0CQh9AQBD3/FXjjkB4FqGxl5ABUCgGuEAOHHiP82GDW9u8NfKomsjino+dxaVjqO/fuDHk70JGZksp5/Yfxj6ho9LPDPVAIeePDwROlWKA8ACQggALrn4Xe1wBDXuajD1fOr15297a0tGQ8Cmt2yeJLn/p3vV5NoeRyleP4MCgE9ZECj4EwIAX578O8DCAUDfCQQEjP37fuLMDkDgzi5D9/opBgBS+FTxrgHgAwvc3LWwdRmqjt91CPBx9cx3GgJ8T98awFc+j3YOjWiuAPBxNQIAsA2Q5aw1AA91ozrIXs+bWjVAoOBB5tMAQxsCrJB3DgpqW7UBAoHAAYAZgEza9RBgzfetKv/j7084F7i4EVg1QKDgNQ0QMgXswgi0VvxiAWBNAymfagMEAoEWgrT5vmsxKNUG0La5adFHrvzJqtMKp/RRtHwBMRWsAIgAQCBpS5azFEzzfb7AQ/lB+PS/tWgkl7jrUrAhsT73ArrYDMKCD0DAhR8DgBDAFr0XkCLIEKYMkaaP6CHZTh4zqE0Zc0PWugbb3JgBIP31EUGM+X1qWLwvUEWCANNJ7cBsgMSXJ+iKAcDHP3Fdr0rAOt+fM1RWAGcIaGcXWzt/UjBaUAsvh5+EjuNv5EHaRM9jJeT/GihQj5kCIBSVmqRXGgB86xl+e4hmhgagqGg4iWoOn5qQJB33H5Rhchhy+PF4VLbL6VWCQ/7uOtRMHQJ8cXMhXXtIAEB9KZKZr+JZYfHcmVUTmKv90hvaBRieDweidKbl31KnxVadJwDgQpcu0tY82MUIAECqag4Myx2deyZb6X1DQI6qpJB5YjStCiK6B+/w12o7fSeBUU/ltDwvLa1MJ/PwlRvSKTWatpEydo8DgP/PgeAbHkjQJKRPve89zaPPn2y2b9/elv+7/fc3AIEPAJT+YzuvbdMdPHiwueKC9c1v/vJkm94FAKpb16oylcFDT9cCAJW0/OWlWgsBAgmJBEwuVpu3XTThAwlx6bz3Tn5LEPDev/bFwy148Bw78mxDV8YQjQYArsUqAMKgN1FzviAOa1yEkcKLQ2g0jzqWASev/Xdpqoby+zkbz5n6LoNSEZIuy8WY3fVYGcbO8qgmAPBV3QUAgEDaEfCx/9COK5Zlv2///ub11//Xvl+z5o3tX/77kzt3LkvzxwOPtu8odkCeSSBDsysAfBI9/b01VMJIz1JJMFjpaUjBsu66dWfv81tYOH3n3x133d6sXbu2ueBtF7a/n//nc83S0lJz05e/2v7W0nzmczu8waUlhGXH8rwv+iQA8MpYkb4khHvveajZuHFDp3V/9dUTzfW7rjRBUEpUbqdMycisEwBYc10CAD0SBCTEkMdKRwCgR1vEqQAI4exZmmwA+IoDCCTdD277+rKkfPXOSgfh+8qtNoCPQ2dsgDCy5VTcfTpmhwsbJcdf29Rmal39KqN3ZA1mFXWb2k6qLz9P+IV/v2mqCbiRRJsGu951HWyaHBkExlCrXLtc9J0vGmF9PAYAUvizvM5NtlPbHNJOLCE62n3EQwCIFTbS8s4wGADwCyOx22Udl0YN4btk9LtEAMjbTbXNIrzjl2fS/gPay4VK/xMotCttLLqHH9mX3Gk1bZ+cGQcAZSx3vCB0Pj8HUwAAefWr1Wi85/f5zHoIQB20dmqM5b2fgLP0hvOn7jRKvdp2cADAnncIY/iR7tQjtKtftWtfhwSAGJuJ+wPgvkNKr91sGvpuUACgxmjBExqTODPoO/UI68In7b1kXNdjoSXYkIsxQ0LILABY19rK9oJucAAA4/g18SG9hAOAH0vHe4I8ro5/myUAXOFhvK0uHoweAJrQXQwpBQB8FhACbEmDKOM6BCwsToYLGEUlDAESACG2DoFg1RiBMdYxZ0qJRmCdBjL9thqngdrllpZnVB8LQWQTDcoI5GM8vxaWcKLF19H7UlcCUy63qkvBZzTGkJaCNaNOHgdjGXJ8z8PV86UTrXZrCjoCypJBKjyN5qXN6yjrwoHnO7sgeSUwdZNkpTeDLAD41jO4+pdBJHzVUzt9XNsr8AEAWpQLGnm7gkoAhtATzNqLI3kh6A2yF0gGaVEvIdMk1118IUwJuYlM1oOHamkHPU1WGs/MVLQDougmUp/TrHUaOgDC6+VrK0DmytNVHyy7ezUA7v4NEZ5c9GlXqxYWl9375wuptu708TEFNoRrPNbK5irRArir/d/e+70Y9qi08oh7X1tjT1XVCqVAGN/ZBerVsb7K8Ru65FawL8bOddmir1xqJE/v232UtgcJ/5WlaW/jbMkGZhB7J4Pv2P7AYr2nlU8CQ1LUE6kZWP+ucVAaRdZ9e6EAgDEmZxpUB2ucpDJJjV/7hd3BF2RxIcjj81P39kMFBzrNYSbkHeru2zVNBgAxGreGykgiqrzlOewKMwsBgCZ0LnjNP5HqQmAlVV5dxaYh2PoE9j0+aWDowjKOuY0Eza4AEACIvTMoZGxyXfoAMHDQUbiX66HwMjy498d1rYvr0gefSoxV0aXTZ98YYo1HnDEaIL51851JvPvurWf97JCBFPgsnSqTGjGgRMkLQQNqQ61KBgcqADKYN4akFQBjkGJGGyoAMpg3hqQVAGOQYkYbKgAymDeGpE4AuA6RlKeA8Yul//rU4SRgjb28IQImCwA03z569OVmy5ZzWx9/AgG5LaUutvgAUHp5owMA7/UcBH1pgNLLKxIA1qGRtKsmBULagJ4cAIy5vOIAgDMEqeJyn18DAIaBVACMvbwiAWBVGvvqXdoArvt6xlDe6ADAG9TFLMAHgNLLGyQAYHlbjhYhldb29n3pxlpezhnFPp718b09LJof4oBCLM8a+p57mPSYyysOAFLtSkcLOHAAGNpv+mZpAe1MHY7ksZVXHACgASz3KilwqYb4JQmaS7Y1rRtrecUBABrA5WJljT3c1886QVwCQAY8xIxrJZRXJABSnCu54PjBzfy9vIcAv8dc3qoDgHVWsNazuwDA0MsrFgAxqlgahNo9OS5BpQw3VKYVa6AFZLoMzdC2ppRX2kUVwfcFaEzjBqJ24QQ/zJkDIhcAEgyuKSumraFCl0ObDM6UbZbT4lUFAB9TfQDxpY/9PoTySgs8iT4tnPvgk7+/73esECW9L3/5faXLKw4AFBkUwzQrSHJ+fr45fvxYs2nT5ja7xcXFyUmgMflL2tLKS3WGyeFRTto5KzTMCgFzRcnKKKGQPFD5EFotf1kfjRlaaHZf5RUHABd6fC5aPG0Xu4FjLy+np/aVtvoEGpzFvYdd+jv0JcScfLMAULqPnk/jdN2+HEH1ldYLgDH76GEjTB5aQW3uw+exLyHm5OsEwNh99GbdvhxB9ZXWCwCr4DH46Plc0LqOQ+hLiDn5ZgGg61mATyCll5cjqL7Sti5hlPlYffTAuFm1r7jdwOoTuLXFiDzpjG9euU42kz2zOABUn8CtrfDx5Po8FgeA6hM4DQDZo2N9HosDQPUJtM2rFB/EIgEwZh89Mv5m2b5VB4Ch++jlAiC2fcUCIGWemeIzB4t7rOWtKpcwnwtW9QlMgfls02Q5hfqq6gOIL33s9yGUV5xLGJ0WHsPo0nz0YtpGtLntKw4A1SdwGiK5PojFuYRVn8AwABBViM9jaQD4P3SIWa1dz+tuAAAAAElFTkSuQmCC"
+		},
+		{
+			"path": "C:\\Users\\LukasNaeyaert\\Downloads\\Appa Ghasts 1.2.2\\assets\\minecraft\\optifine\\cem\\happy_ghast\\sky_bison.png",
+			"name": "sky_bison.png",
+			"folder": "",
+			"namespace": "",
+			"id": "19",
+			"group": "",
+			"width": 128,
+			"height": 128,
+			"uv_width": 128,
+			"uv_height": 128,
+			"particle": false,
+			"use_as_default": false,
+			"layers_enabled": false,
+			"sync_to_project": "",
+			"render_mode": "default",
+			"render_sides": "auto",
+			"pbr_channel": "color",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"internal": true,
+			"saved": true,
+			"uuid": "8eab0267-0677-e79d-cfce-c6fea9d6c043",
+			"relative_path": "../../../../../../../../Downloads/Appa Ghasts 1.2.2/assets/minecraft/optifine/cem/happy_ghast/sky_bison.png",
+			"source": "data:image/png;base64,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"
+		}
+	],
+	"variants": {
+		"default": {
+			"name": "default",
+			"display_name": "Default",
+			"uuid": "611db00c-d195-8561-2e7e-356911b40d66",
+			"texture_map": {},
+			"excluded_nodes": [],
+			"is_default": true
+		},
+		"list": [
+			{
+				"name": "red",
+				"display_name": "red",
+				"uuid": "dccd0657-0d66-faed-5a9d-13f03f612258",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "2e33538a-52d2-c096-7ba6-3d34ef8a898e"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "blue",
+				"display_name": "blue",
+				"uuid": "24a7e0ba-a7f9-9edd-3aa8-babeb33a3e8a",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "1db1b202-4301-ba8a-91f6-772daff378a6"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "black",
+				"display_name": "black",
+				"uuid": "fd8b0d0c-5fa5-52b2-b7bf-ed089a34e568",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "75fdebb9-c0aa-4c67-5023-a1320d3da2b8"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "light_blue",
+				"display_name": "light_blue",
+				"uuid": "a8318c27-bcb2-e5d2-11eb-2c703be8cbf1",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "4599c7ff-9e02-4e32-74fc-92cf938baf61"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "cyan",
+				"display_name": "cyan",
+				"uuid": "ca68ae40-cd9e-4b56-9d08-0edc36b237be",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "50886969-22b2-f9cf-b054-51d63d544a4b"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "brown",
+				"display_name": "brown",
+				"uuid": "0bbef7ed-6e5c-aef7-997f-a1437c6175cb",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "29e1ee23-278c-dba1-aebe-b526c7383472"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "gray",
+				"display_name": "gray",
+				"uuid": "dcdf4c55-ee1e-2e4e-a823-96cfb6afc988",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "dde77eaf-e97a-8c48-350c-b952179ea605"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "green",
+				"display_name": "green",
+				"uuid": "9b300037-9687-a9b7-917a-45ca95c8959c",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "63c208ac-dacc-5170-820c-3b4e5de77d2a"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "light_gray",
+				"display_name": "light_gray",
+				"uuid": "5c73f9f1-c578-7308-7995-7828f8b94c0b",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "ba6ccd88-386a-8636-07ec-970cf178c0a5"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "lime",
+				"display_name": "lime",
+				"uuid": "4e1bc172-153b-a99d-3bd9-12c7aa000ec2",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "c59075ed-0cf7-7c00-f14c-2b18528919b3"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "pink",
+				"display_name": "pink",
+				"uuid": "8bb3abec-459c-150d-94e9-e1813e897f9a",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "eb97a02d-6742-b24d-a2a8-369706062183"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "orange",
+				"display_name": "orange",
+				"uuid": "fcb42658-80c8-2d97-4d2b-84d7fec16135",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "0ed3847e-a3da-f8c1-d605-1a9a45ac344e"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "magenta",
+				"display_name": "magenta",
+				"uuid": "d525fde7-5f66-6e06-d735-6e079b42834e",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "0fd8e42d-dc2b-7c52-9939-8f4af563e4ab"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "purple",
+				"display_name": "purple",
+				"uuid": "4342002c-d85c-55ff-3699-9049c13f8dbc",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "2803e1e7-49bd-e2e4-7223-39ca8d001f86"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "white",
+				"display_name": "white",
+				"uuid": "162d764e-e71a-7154-f64d-528b33870d2f",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "348f7509-3a77-5480-a25f-4cfb916595e4"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "yellow",
+				"display_name": "yellow",
+				"uuid": "da32f5de-a268-6ac6-8211-42bc89d091af",
+				"texture_map": {
+					"153a2fb8-84d9-ec6d-24f0-f3cfc01346c5": "596e2279-4e12-fdab-1606-d607798beca5"
+				},
+				"excluded_nodes": []
+			},
+			{
+				"name": "baby",
+				"display_name": "baby",
+				"uuid": "eb771fe6-078d-0a10-72ea-f9e9d1b40a0d",
+				"texture_map": {
+					"8eab0267-0677-e79d-cfce-c6fea9d6c043": "dfee9a80-295f-11e9-d25c-fa9cf224cd1e"
+				},
+				"excluded_nodes": [
+					"44dac89a-8f9e-edac-4436-b3caea136f5c",
+					"0dec298a-f13b-f441-d7d1-2c7469a930d2",
+					"9d344b6d-235f-e04f-2740-1a2c5cb6533a",
+					"6e14fd32-8b07-b99c-ed35-5a23c970abf2",
+					"0bd6a99e-b1d0-08a3-3d5b-5601a00a3ab0",
+					"94756fd1-8cf3-320a-53ff-61b96652548e",
+					"2090fe52-4e8f-26bd-4b40-7a7f48d17edf",
+					"abaf17cc-226b-39d1-45b8-1e5dbd77cd0b",
+					"e7671e43-5bc3-353a-8515-13c7462c4815",
+					"b86fc56f-949a-678a-8710-dabc7e798d46",
+					"78318f07-a65c-b1f5-6314-b27175ebd560",
+					"03b852cf-3f89-6d93-9517-7da834bf7459",
+					"666cb1ce-462d-565e-a5f9-96bd8b2fabdc"
+				]
+			}
+		]
+	},
+	"animations": [
+		{
+			"uuid": "5c2571bf-ede1-624a-7830-be2559fc8234",
+			"name": "animation",
+			"loop": "once",
+			"override": false,
+			"length": 0.05,
+			"snapping": 20,
+			"selected": false,
+			"saved": true,
+			"path": "",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "",
+			"excluded_nodes": []
+		},
+		{
+			"uuid": "3ac31ffd-62ae-72d8-bec4-63c2e60189f5",
+			"name": "walk",
+			"loop": "loop",
+			"override": false,
+			"length": 1,
+			"snapping": 20,
+			"selected": false,
+			"saved": true,
+			"path": "",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "0",
+			"excluded_nodes": [],
+			"animators": {
+				"666cb1ce-462d-565e-a5f9-96bd8b2fabdc": {
+					"name": "head1",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "position",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "23f7bbc3-3e9e-0aaa-fa15-4f52b12d7c50",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"b86fc56f-949a-678a-8710-dabc7e798d46": {
+					"name": "tail",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "-30"
+								}
+							],
+							"uuid": "4f6f9108-5daa-f1f2-cfcc-d5509d40beac",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "-30"
+								}
+							],
+							"uuid": "5ea05d95-fc9a-ef77-7a13-396407ae818d",
+							"time": 1,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "-20"
+								}
+							],
+							"uuid": "84cefa93-5bbb-fb13-dff6-5e0e84aed6e4",
+							"time": 0.25,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"78318f07-a65c-b1f5-6314-b27175ebd560": {
+					"name": "tail2",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "15"
+								}
+							],
+							"uuid": "33d7f8f2-a33f-9a32-41e2-a6a3d24dbfaf",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "15"
+								}
+							],
+							"uuid": "b9b6127c-45ca-c1aa-50de-161953fb33a9",
+							"time": 1,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "2.5"
+								}
+							],
+							"uuid": "1eb5ce15-fe92-4484-2c89-91909d2fec51",
+							"time": 0.65,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				}
+			}
+		}
+	]
+}

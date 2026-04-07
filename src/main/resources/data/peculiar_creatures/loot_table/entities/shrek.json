@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "peculiar_creatures:shrek_horn"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "peculiar_creatures:shrek_music_disc",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "predicate": {
+                "type": "minecraft:skeleton"
+              },
+              "entity": "attacker"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

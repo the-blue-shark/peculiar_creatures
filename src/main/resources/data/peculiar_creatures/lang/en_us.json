@@ -6,9 +6,17 @@
   "entity.peculiar_creatures.smurf_cat": "Smurf Cat",
 
   "item.peculiar_creatures.shrek_spawn_egg": "Shrek Spawn Egg",
-  "entity.peculiar_creatures.shrek": "Shrek",
+  "item.peculiar_creatures.shrek_horn": "Ear of the Ogre",
+  "entity.peculiar_creatures.shrek": "Ogre",
+
+  "item.peculiar_creatures.appa_spawn_egg": "Sky Bison Spawn Egg",
+  "entity.peculiar_creatures.appa": "Sky Bison",
+
+  "item.peculiar_creatures.music_disc.tooltip": "Pack required for music",
 
   "item.peculiar_creatures.spectre_music_disc": "The Spectre Music Disc",
   "item.peculiar_creatures.spectre_music_disc.desc": "Alan Walker - The Spectre",
-  "item.peculiar_creatures.music_disc.tooltip": "Pack required for music"
+
+  "item.peculiar_creatures.shrek_music_disc": "All Star Music Disc",
+  "item.peculiar_creatures.shrek_music_disc.desc": "Smash Mouth - All Star"
 }

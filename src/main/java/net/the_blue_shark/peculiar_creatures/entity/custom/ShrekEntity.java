@@ -9,9 +9,10 @@ import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
-import eu.pb4.polymer.virtualentity.api.tracker.DisplayTrackedData;
-import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
+import eu.pb4.polymer.virtualentity.api.data.DisplayEntityData;
+import eu.pb4.polymer.virtualentity.api.data.EntityData;
 import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -24,12 +25,14 @@ import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
+import net.minecraft.world.entity.animal.happyghast.HappyGhast;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.Warden;
@@ -37,13 +40,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.AABB;
+import net.the_blue_shark.peculiar_creatures.effect.ModEffects;
 import net.the_blue_shark.peculiar_creatures.entity.goal.AnimatedMeleeAttackGoal;
+import net.the_blue_shark.peculiar_creatures.entity.goal.FearPanicGoal;
 import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
 import org.jspecify.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.HashSet;
 import java.util.List;
@@ -98,6 +103,7 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(0, new FearPanicGoal(this, 1.4));
         this.goalSelector.addGoal(1, new AnimatedMeleeAttackGoal(this, 1.0, true));
         this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 1.0, 32.0F));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -110,7 +116,7 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
 
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext context) {
-        if(PolymerResourcePackUtils.hasMainPack(context.getPlayer())) {
+        if(PolymerResourcePackUtils.hasMainPack(context)) {
             return EntityType.BLOCK_DISPLAY;
         } else {
             return EntityType.WARDEN;
@@ -121,23 +127,23 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
     public void modifyRawTrackedData(List<SynchedEntityData.DataValue<?>> data, ServerPlayer player, boolean initial) {
         if(PolymerResourcePackUtils.hasMainPack(player)) {
             if (this instanceof Entity entity) {
-                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.WIDTH, entity.getBbWidth()));
-                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.HEIGHT, entity.getBbHeight()));
+                data.add(SynchedEntityData.DataValue.create(DisplayEntityData.WIDTH, entity.getBbWidth()));
+                data.add(SynchedEntityData.DataValue.create(DisplayEntityData.HEIGHT, entity.getBbHeight()));
             }
 
-            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.SHADOW_RADIUS, this.getShadowRadius()));
-            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.TELEPORTATION_DURATION, Math.max(0, this.getTeleportDuration())));
+            data.add(SynchedEntityData.DataValue.create(DisplayEntityData.SHADOW_RADIUS, this.getShadowRadius()));
+            data.add(SynchedEntityData.DataValue.create(DisplayEntityData.TELEPORTATION_DURATION, Math.max(0, this.getTeleportDuration())));
 
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.SILENT, true));
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NO_GRAVITY, true));
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NAME_VISIBLE, false));
+            data.add(SynchedEntityData.DataValue.create(EntityData.SILENT, true));
+            data.add(SynchedEntityData.DataValue.create(EntityData.NO_GRAVITY, true));
+            data.add(SynchedEntityData.DataValue.create(EntityData.NAME_VISIBLE, false));
         } else {
             data.add(SynchedEntityData.DataValue.create(
-                    EntityTrackedData.CUSTOM_NAME,
-                    Optional.of(Component.literal("Shrek"))
+                    EntityData.CUSTOM_NAME,
+                    Optional.of(Component.translatable("entity.peculiar_creatures.shrek"))
             ));
             data.add(SynchedEntityData.DataValue.create(
-                    EntityTrackedData.SILENT,
+                    EntityData.SILENT,
                     true
             ));
         }
@@ -204,7 +210,8 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
 
                 if (firstHitReacted.add(living)) {
                     this.holder.getAnimator().playAnimation("roar", 10);
-                    this.playSound(ModSounds.SHREK_ROAR, 2.0F, 1.0F);
+                    this.playSound(ModSounds.SHREK_ROAR, 50.0F, 1.0F);
+                    getTargets().forEach(this::fear);
                 }
 
             }
@@ -233,6 +240,14 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
     @Override
     public @Nullable LivingEntity getTarget() {
         return this.target;
+    }
+
+    private List<LivingEntity> getTargets() {
+        return this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(30), entity -> entity instanceof PathfinderMob && !(entity instanceof ShrekEntity));
+    }
+
+    private void fear(LivingEntity entity) {
+        entity.addEffect(new MobEffectInstance(ModEffects.FEAR, 300, 0));
     }
 
 }

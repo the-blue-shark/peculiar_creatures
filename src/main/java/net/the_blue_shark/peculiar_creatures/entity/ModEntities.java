@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.the_blue_shark.peculiar_creatures.PeculiarCreaturesMod;
+import net.the_blue_shark.peculiar_creatures.entity.custom.AppaEntity;
 import net.the_blue_shark.peculiar_creatures.entity.custom.ShrekEntity;
 import net.the_blue_shark.peculiar_creatures.entity.custom.SmurfCatEntity;
 
@@ -30,6 +31,13 @@ public class ModEntities {
                             .sized(1f, 3f)
             );
 
+    public static final EntityType<AppaEntity> APPA =
+            ModEntities.register(
+                    Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, "appa"),
+                    EntityType.Builder.of(AppaEntity::new, MobCategory.CREATURE)
+                        .sized(4f, 4f)
+            );
+
 
 
     private static <T extends Entity> EntityType<T> register(Identifier provoker, EntityType.Builder<T> build) {
@@ -41,6 +49,7 @@ public class ModEntities {
     public static void registerModEntities() {
         FabricDefaultAttributeRegistry.register(ModEntities.SMURF_CAT, SmurfCatEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SHREK, ShrekEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.APPA, AppaEntity.createAttributes());
 
         PeculiarCreaturesMod.LOGGER.info("Registering Mod Entities for " + PeculiarCreaturesMod.MOD_ID);
     }
