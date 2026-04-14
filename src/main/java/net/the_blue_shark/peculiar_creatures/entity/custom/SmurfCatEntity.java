@@ -9,8 +9,8 @@ import de.tomalbrc.bil.core.model.Model;
 import eu.pb4.polymer.core.api.utils.PolymerUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
-import eu.pb4.polymer.virtualentity.api.tracker.DisplayTrackedData;
-import eu.pb4.polymer.virtualentity.api.tracker.EntityTrackedData;
+import eu.pb4.polymer.virtualentity.api.data.DisplayEntityData;
+import eu.pb4.polymer.virtualentity.api.data.EntityData;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -41,7 +41,7 @@ import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
 import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 
 import java.util.List;
 import java.util.UUID;
@@ -102,19 +102,19 @@ public class SmurfCatEntity extends Animal implements AnimatedEntity {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.CAT_AMBIENT;
+        return SoundEvents.CAT_AMBIENT_BABY.value();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.CAT_HURT;
+        return SoundEvents.CAT_HURT_BABY.value();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.CAT_DEATH;
+        return SoundEvents.CAT_DEATH_BABY.value();
     }
 
     @Override
@@ -134,7 +134,7 @@ public class SmurfCatEntity extends Animal implements AnimatedEntity {
 
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
-        if(PolymerResourcePackUtils.hasMainPack(packetContext.getPlayer())) {
+        if(PolymerResourcePackUtils.hasMainPack(packetContext)) {
             return EntityType.BLOCK_DISPLAY;
         } else {
             return EntityType.ZOMBIE;
@@ -146,16 +146,16 @@ public class SmurfCatEntity extends Animal implements AnimatedEntity {
     public void modifyRawTrackedData(List<SynchedEntityData.DataValue<?>> data, ServerPlayer player, boolean initial) {
         if(PolymerResourcePackUtils.hasMainPack(player)) {
             if (this instanceof Entity entity) {
-                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.WIDTH, entity.getBbWidth()));
-                data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.HEIGHT, entity.getBbHeight()));
+                data.add(SynchedEntityData.DataValue.create(DisplayEntityData.WIDTH, entity.getBbWidth()));
+                data.add(SynchedEntityData.DataValue.create(DisplayEntityData.HEIGHT, entity.getBbHeight()));
             }
 
-            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.SHADOW_RADIUS, this.getShadowRadius()));
-            data.add(SynchedEntityData.DataValue.create(DisplayTrackedData.TELEPORTATION_DURATION, Math.max(0, this.getTeleportDuration())));
+            data.add(SynchedEntityData.DataValue.create(DisplayEntityData.SHADOW_RADIUS, this.getShadowRadius()));
+            data.add(SynchedEntityData.DataValue.create(DisplayEntityData.TELEPORTATION_DURATION, Math.max(0, this.getTeleportDuration())));
 
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.SILENT, true));
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NO_GRAVITY, true));
-            data.add(SynchedEntityData.DataValue.create(EntityTrackedData.NAME_VISIBLE, false));
+            data.add(SynchedEntityData.DataValue.create(EntityData.SILENT, true));
+            data.add(SynchedEntityData.DataValue.create(EntityData.NO_GRAVITY, true));
+            data.add(SynchedEntityData.DataValue.create(EntityData.NAME_VISIBLE, false));
         } else {
             data.add(SynchedEntityData.DataValue.create(ZombieAccessor.getBabyFlag(), true));
         }

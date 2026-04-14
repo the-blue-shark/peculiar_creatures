@@ -18,7 +18,7 @@ public class AnimatedMeleeAttackGoal extends AnimatedGoal {
     boolean attack = false;
 
     public AnimatedMeleeAttackGoal(PathfinderMob pathfinderMob, double d, boolean bl) {
-        this(pathfinderMob, d, bl, 10, 10);
+        this(pathfinderMob, d, bl, 5, 10);
     }
 
     public AnimatedMeleeAttackGoal(PathfinderMob pathfinderMob, double d, boolean bl, int warmupdelay, int cooldowndelay) {

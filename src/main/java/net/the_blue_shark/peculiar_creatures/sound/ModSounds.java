@@ -17,9 +17,11 @@ import java.util.Optional;
 
 public class ModSounds {
 
-    public static final SoundEvent SHREK_ROAR = registerSoundEvent("shrek_roar", SoundEvents.WARDEN_ROAR);
-    public static final SoundEvent SPECTRE = registerSoundEvent("spectre", SoundEvents.MUSIC_DISC_CHIRP);
-    public static final ResourceKey<JukeboxSong> SPECTRE_KEY = of("spectre");
+    public static SoundEvent SHREK_ROAR = registerSoundEvent("shrek_roar", SoundEvents.GOAT_HORN_SOUND_VARIANTS.get(5));
+    public static SoundEvent SPECTRE = registerSoundEvent("spectre", SoundEvents.MUSIC_DISC_CAT);
+    public static ResourceKey<JukeboxSong> SPECTRE_KEY = of("spectre");
+    public static SoundEvent ALL_STAR = registerSoundEvent("all_star", SoundEvents.MUSIC_DISC_CREATOR);
+    public static ResourceKey<JukeboxSong> ALL_STAR_KEY = of("all_star");
 
     private static ResourceKey<JukeboxSong> of(String name) {
         return ResourceKey.create(Registries.JUKEBOX_SONG, Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, name));

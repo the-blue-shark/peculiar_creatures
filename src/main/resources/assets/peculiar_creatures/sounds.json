@@ -7,6 +7,14 @@
       }
     ]
   },
+  "all_star": {
+    "sounds": [
+      {
+        "name": "peculiar_creatures:all_star",
+        "stream": true
+      }
+    ]
+  },
   "shrek_roar": {
     "subtitle": "subtitle.peculiar_creatures.shrek_roar",
     "sounds": [
