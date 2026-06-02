@@ -3,6 +3,8 @@
   "package": "net.the_blue_shark.peculiar_creatures.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "JukeboxSongPlayerAccessor",
+    "JukeboxSongPlayerMixin",
     "MobMixin",
     "ZombieAccessor"
   ],

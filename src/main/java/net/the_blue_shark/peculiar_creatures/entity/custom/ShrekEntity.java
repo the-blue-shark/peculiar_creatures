@@ -6,11 +6,14 @@ import de.tomalbrc.bil.core.holder.entity.living.LivingEntityHolder;
 import de.tomalbrc.bil.core.model.Model;
 import de.tomalbrc.bil.file.loader.BbModelLoader;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
+import eu.pb4.polymer.core.api.utils.PolymerUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
 import eu.pb4.polymer.virtualentity.api.data.DisplayEntityData;
 import eu.pb4.polymer.virtualentity.api.data.EntityData;
+import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
+import eu.pb4.polymer.virtualentity.api.elements.MobAnchorElement;
 import eu.pb4.polymer.virtualentity.mixin.accessors.EntityAccessor;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.network.chat.Component;
@@ -37,10 +40,12 @@ import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.the_blue_shark.peculiar_creatures.effect.ModEffects;
 import net.the_blue_shark.peculiar_creatures.entity.goal.AnimatedMeleeAttackGoal;
 import net.the_blue_shark.peculiar_creatures.entity.goal.FearPanicGoal;
@@ -48,6 +53,7 @@ import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
+import org.joml.Vector3d;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashSet;
@@ -61,6 +67,7 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
     private final EntityHolder<ShrekEntity> holder;
     private final Set<LivingEntity> firstHitReacted = new HashSet<>();
 
+    //private final ItemDisplayElement head = new ItemDisplayElement(PolymerUtils.createPlayerHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y2YzE3NmFiNzFmYjkwNjg4NWE1MWU3ZWJhMWViNWRiNWJhMDAxNmRmMGQwYTQ5M2FlMmNkYzk5N2FiYjg1ZiJ9fX0="));
 
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     private long persistentAngerEndTime;

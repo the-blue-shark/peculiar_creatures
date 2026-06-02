@@ -45,6 +45,9 @@ dependencies {
 
 	//Server-translations
 	implementation include("xyz.nucleoid:server-translations-api:${project.server_translations_api_version}")
+
+	//Notica
+	implementation "work.lclpnet.mods:notica:${project.notica_version}"
 }
 
 processResources {

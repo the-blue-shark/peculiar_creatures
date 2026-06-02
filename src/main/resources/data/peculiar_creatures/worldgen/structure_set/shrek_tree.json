@@ -1,0 +1,16 @@
+{
+
+  "structures": [
+    {
+      "structure": "peculiar_creatures:shrek_tree",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 7357620,
+
+    "spacing": 32,
+    "separation":8
+  }
+}

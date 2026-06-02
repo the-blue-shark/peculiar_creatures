@@ -28,7 +28,7 @@ public class ModEntities {
             ModEntities.register(
                     Identifier.fromNamespaceAndPath(PeculiarCreaturesMod.MOD_ID, "shrek"),
                     EntityType.Builder.of(ShrekEntity::new, MobCategory.MONSTER)
-                            .sized(1f, 3f)
+                            .sized(1f, 2.7f)
             );
 
     public static final EntityType<AppaEntity> APPA =

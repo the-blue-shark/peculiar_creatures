@@ -30,10 +30,10 @@ import java.util.function.Function;
 
 public class ModItems {
     public static final Item SPECTRE_DISC = registerItem("spectre_music_disc", settings ->
-            new PolymerMusicDisc(settings, Items.MUSIC_DISC_CAT, true, ModSounds.SPECTRE_KEY));
+            new PolymerMusicDisc(settings, Items.MUSIC_DISC_CAT, true, ModSounds.SPECTRE_KEY, "spectre"));
 
     public static final Item SHREK_DISC = registerItem("shrek_music_disc", settings ->
-            new PolymerMusicDisc(settings, Items.MUSIC_DISC_CREATOR, true, ModSounds.ALL_STAR_KEY));
+            new PolymerMusicDisc(settings, Items.MUSIC_DISC_CREATOR, true, ModSounds.ALL_STAR_KEY, "all_star"));
 
     public static final Item SMURF_CAT_SPAWN_EGG = registerItem("smurf_cat_spawn_egg", setting -> new PolymerSpawnEggItem(Items.DOLPHIN_SPAWN_EGG, true, setting.spawnEgg(ModEntities.SMURF_CAT)) {
         @Override

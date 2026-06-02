@@ -4,6 +4,7 @@ import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.JukeboxSong;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.Item;
@@ -19,17 +20,19 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class PolymerMusicDisc extends SimplePolymerItem {
+    private final String noticaPath;
 
-    public PolymerMusicDisc(Item.Properties settings, ResourceKey<JukeboxSong> song) {
-        this(settings, Items.TRIAL_KEY, true, song);
+    public PolymerMusicDisc(Item.Properties settings, ResourceKey<JukeboxSong> song, String noticaPath) {
+        this(settings, Items.TRIAL_KEY, true, song, noticaPath);
     }
 
-    public PolymerMusicDisc(Item.Properties settings, Item polymerItem, ResourceKey<JukeboxSong> song) {
-        this(settings, polymerItem, false, song);
+    public PolymerMusicDisc(Item.Properties settings, Item polymerItem, ResourceKey<JukeboxSong> song, String noticaPath) {
+        this(settings, polymerItem, false, song, noticaPath);
     }
 
-    public PolymerMusicDisc(Item.Properties settings, Item polymerItem, boolean useModel, ResourceKey<JukeboxSong> song) {
+    public PolymerMusicDisc(Item.Properties settings, Item polymerItem, boolean useModel, ResourceKey<JukeboxSong> song, String noticaPath) {
         super(settings.stacksTo(1).jukeboxPlayable(song), polymerItem, useModel);
+        this.noticaPath = noticaPath;
     }
 
     @Override
@@ -37,17 +40,8 @@ public class PolymerMusicDisc extends SimplePolymerItem {
         return PolymerResourcePackUtils.hasMainPack(context) ? super.getPolymerItemModel(stack, context, lookup) : null;
     }
 
-    @Override
-    public void appendHoverText(
-            ItemStack stack,
-            Item.TooltipContext context,
-            TooltipDisplay displayComponent,
-            java.util.function.Consumer<Component> textConsumer,
-            TooltipFlag type
-    ) {
-        if(!PolymerResourcePackUtils.isRequired()) {
-            textConsumer.accept(Component.translatable("item.peculiar_creatures.music_disc.tooltip").withStyle(ChatFormatting.RED));
-        }
+    public String getSongPath() {
+        return "songs/" + this.noticaPath + ".nbs";
     }
 
 }
