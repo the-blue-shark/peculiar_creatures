@@ -1,0 +1,8 @@
+{
+  "comparator_output": 15,
+  "description": {
+    "translate": "item.peculiar_creatures.shrek_music_disc.desc"
+  },
+  "length_in_seconds": 190.0,
+  "sound_event": "peculiar_creatures:all_star"
+}
