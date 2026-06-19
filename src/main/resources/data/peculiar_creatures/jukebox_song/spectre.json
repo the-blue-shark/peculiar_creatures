@@ -4,5 +4,5 @@
     "translate": "item.peculiar_creatures.spectre_music_disc.desc"
   },
   "length_in_seconds": 191.0,
-  "sound_event": "peculiar_creatures:spectre"
+  "sound_event": "minecraft:block.note_block.harp"
 }

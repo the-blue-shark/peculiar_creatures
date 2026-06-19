@@ -1,5 +1,6 @@
 package net.the_blue_shark.peculiar_creatures.entity.custom;
 
+import com.mojang.datafixers.util.Pair;
 import de.tomalbrc.bil.api.AnimatedEntity;
 import de.tomalbrc.bil.core.holder.entity.EntityHolder;
 import de.tomalbrc.bil.core.holder.entity.living.LivingEntityHolder;
@@ -35,31 +36,27 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
-import net.minecraft.world.entity.animal.happyghast.HappyGhast;
-import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import net.the_blue_shark.peculiar_creatures.effect.ModEffects;
 import net.the_blue_shark.peculiar_creatures.entity.goal.AnimatedMeleeAttackGoal;
 import net.the_blue_shark.peculiar_creatures.entity.goal.FearPanicGoal;
-import net.the_blue_shark.peculiar_creatures.mixin.ZombieAccessor;
 import net.the_blue_shark.peculiar_creatures.sound.ModSounds;
 import net.the_blue_shark.peculiar_creatures.util.AnimationHelper;
 import net.the_blue_shark.peculiar_creatures.util.Util;
-import org.joml.Vector3d;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
+
+import static net.minecraft.core.component.DataComponents.DYED_COLOR;
 
 public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEntity, AnimatedMeleeAttackGoal.IMeleeAttackAnimatable {
     public static final Identifier ID = Util.id("shrek");
@@ -126,7 +123,7 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
         if(PolymerResourcePackUtils.hasMainPack(context)) {
             return EntityType.BLOCK_DISPLAY;
         } else {
-            return EntityType.WARDEN;
+            return EntityType.ZOMBIE;
         }
     }
 
@@ -146,14 +143,42 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
             data.add(SynchedEntityData.DataValue.create(EntityData.NAME_VISIBLE, false));
         } else {
             data.add(SynchedEntityData.DataValue.create(
-                    EntityData.CUSTOM_NAME,
-                    Optional.of(Component.translatable("entity.peculiar_creatures.shrek"))
-            ));
-            data.add(SynchedEntityData.DataValue.create(
                     EntityData.SILENT,
                     true
             ));
         }
+    }
+
+    @Override
+    public void modifyRawEntityAttributeData(List<ClientboundUpdateAttributesPacket.AttributeSnapshot> data, ServerPlayer player, boolean initial) {
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            data.add(new ClientboundUpdateAttributesPacket.AttributeSnapshot(
+                    Attributes.SCALE,
+                    1.5,
+                    List.of()
+            ));
+        }
+    }
+
+    @Override
+    public List<Pair<EquipmentSlot, ItemStack>> getPolymerVisibleEquipment(List<Pair<EquipmentSlot, ItemStack>> items, ServerPlayer player) {
+        if(!PolymerResourcePackUtils.hasMainPack(player)) {
+            ItemStack head = PolymerUtils.createPlayerHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y2YzE3NmFiNzFmYjkwNjg4NWE1MWU3ZWJhMWViNWRiNWJhMDAxNmRmMGQwYTQ5M2FlMmNkYzk5N2FiYjg1ZiJ9fX0=");
+            ItemStack chest = new ItemStack(Items.LEATHER_CHESTPLATE);
+            chest.set(DYED_COLOR, new DyedItemColor(16383998));
+            ItemStack leggings = new ItemStack(Items.LEATHER_LEGGINGS);
+            leggings.set(DYED_COLOR, new DyedItemColor(8606770));
+            ItemStack boots = new ItemStack(Items.LEATHER_BOOTS);
+            boots.set(DYED_COLOR, new DyedItemColor(8606770));
+
+            return List.of(
+                    new Pair<>(EquipmentSlot.HEAD, head),
+                    new Pair<>(EquipmentSlot.CHEST, chest),
+                    new Pair<>(EquipmentSlot.LEGS, leggings),
+                    new Pair<>(EquipmentSlot.FEET, boots)
+            );
+        }
+        return List.of();
     }
 
     @Override
