@@ -135,9 +135,9 @@ public class SmurfCatEntity extends Animal implements AnimatedEntity {
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
         if(PolymerResourcePackUtils.hasMainPack(packetContext)) {
-            return EntityType.BLOCK_DISPLAY;
+            return EntityTypes.BLOCK_DISPLAY;
         } else {
-            return EntityType.ZOMBIE;
+            return EntityTypes.ZOMBIE;
         }
 
     }

@@ -22,6 +22,7 @@ import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
@@ -43,7 +44,7 @@ public class AppaEntity extends HappyGhast implements AnimatedEntity {
     private final GenericEntityElement HappyGhast = new GenericEntityElement() {
         @Override
         protected EntityType<? extends Entity> getEntityType() {
-            return EntityType.HAPPY_GHAST;
+            return EntityTypes.HAPPY_GHAST;
         }
     };
 
@@ -85,9 +86,9 @@ public class AppaEntity extends HappyGhast implements AnimatedEntity {
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext context) {
         if(PolymerResourcePackUtils.hasMainPack(context)) {
-            return EntityType.BLOCK_DISPLAY;
+            return EntityTypes.BLOCK_DISPLAY;
         } else {
-            return EntityType.HAPPY_GHAST;
+            return EntityTypes.HAPPY_GHAST;
         }// does not conflict with Happy ghast element on the virtual entity
     }
 
