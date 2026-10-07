@@ -48,7 +48,7 @@ import java.util.UUID;
 
 import static net.minecraft.core.component.DataComponents.DYED_COLOR;
 
-public class SmurfCatEntity extends Animal implements AnimatedEntity {
+public class SmurfCatEntity extends Animal implements AnimatedEntity{
     public static final Identifier ID = Util.id("smurf_cat");
     public static final Model MODEL = Util.loadBbModel(ID);
     private final EntityHolder<SmurfCatEntity> holder;
@@ -135,9 +135,9 @@ public class SmurfCatEntity extends Animal implements AnimatedEntity {
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext packetContext) {
         if(PolymerResourcePackUtils.hasMainPack(packetContext)) {
-            return EntityType.BLOCK_DISPLAY;
+            return EntityTypes.BLOCK_DISPLAY;
         } else {
-            return EntityType.ZOMBIE;
+            return EntityTypes.ZOMBIE;
         }
 
     }

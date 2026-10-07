@@ -16,15 +16,13 @@
         {
           "type": "minecraft:item",
           "name": "peculiar_creatures:shrek_music_disc",
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "predicate": {
-                "type": "minecraft:skeleton"
-              },
-              "entity": "attacker"
+          "condition": {
+            "type": "minecraft:entity_properties",
+            "entity": "attacker",
+            "predicate": {
+              "minecraft:entity_type": "#minecraft:skeletons"
             }
-          ]
+          }
         }
       ]
     }

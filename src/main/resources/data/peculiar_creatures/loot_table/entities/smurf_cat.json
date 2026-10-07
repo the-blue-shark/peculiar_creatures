@@ -7,12 +7,16 @@
         {
           "type": "minecraft:item",
           "name": "peculiar_creatures:smurf_cat_hat",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.2
-            }
-          ]
+          "condition": {
+            "type": "minecraft:random_chance_with_enchanted_bonus",
+            "enchanted_chance": {
+              "type": "minecraft:linear",
+              "base": 0.4,
+              "per_level_above_first": 0.3
+            },
+            "enchantment": "minecraft:looting",
+            "unenchanted_chance": 0.2
+          }
         }
       ]
     },
@@ -22,15 +26,13 @@
         {
           "type": "minecraft:item",
           "name": "peculiar_creatures:spectre_music_disc",
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "predicate": {
-                "type": "minecraft:skeleton"
-              },
-              "entity": "attacker"
+          "condition": {
+            "type": "minecraft:entity_properties",
+            "entity": "attacker",
+            "predicate": {
+              "minecraft:entity_type": "#minecraft:skeletons"
             }
-          ]
+          }
         }
       ]
     }

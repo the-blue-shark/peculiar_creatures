@@ -121,9 +121,9 @@ public class ShrekEntity extends PathfinderMob implements NeutralMob, AnimatedEn
     @Override
     public EntityType<?> getPolymerEntityType(PacketContext context) {
         if(PolymerResourcePackUtils.hasMainPack(context)) {
-            return EntityType.BLOCK_DISPLAY;
+            return EntityTypes.BLOCK_DISPLAY;
         } else {
-            return EntityType.ZOMBIE;
+            return EntityTypes.ZOMBIE;
         }
     }
 
